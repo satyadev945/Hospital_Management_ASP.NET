@@ -1,0 +1,295 @@
+@page
+@model HospitalManagement.Web.Pages.Doctor.TodaysAppointmentsModel
+@{
+    ViewData["Title"] = "Today's Appointments";
+}
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-page="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Today's Appointments</li>
+                </ol>
+            </nav>
+            <h1 class="display-5 text-primary">Today's Appointments</h1>
+            <p class="lead text-muted">@DateTime.Today.ToString("dddd, MMMM dd, yyyy")</p>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>@Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i>@Model.SuccessMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm bg-primary text-white">
+                <div class="card-body">
+                    <h6 class="text-white-50">Total Appointments</h6>
+                    <h2 class="mb-0">@Model.TodaysAppointments.Count</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm bg-success text-white">
+                <div class="card-body">
+                    <h6 class="text-white-50">Approved</h6>
+                    <h2 class="mb-0">@Model.TodaysAppointments.Count(a => a.AppointmentStatus == 1)</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm bg-info text-white">
+                <div class="card-body">
+                    <h6 class="text-white-50">Completed</h6>
+                    <h2 class="mb-0">@Model.TodaysAppointments.Count(a => a.AppointmentStatus == 3)</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm bg-warning text-dark">
+                <div class="card-body">
+                    <h6 class="text-dark-50">Pending</h6>
+                    <h2 class="mb-0">@Model.TodaysAppointments.Count(a => a.AppointmentStatus == 2)</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-0 py-3">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h5 class="card-title mb-0">
+                                <i class="bi bi-calendar-check text-primary me-2"></i>
+                                Appointment Schedule
+                            </h5>
+                        </div>
+                        <div class="col-auto">
+                            <button onclick="location.reload()" class="btn btn-sm btn-outline-primary">
+                                <i class="bi bi-arrow-clockwise"></i> Refresh
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @if (Model.TodaysAppointments != null && Model.TodaysAppointments.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Patient Name</th>
+                                        <th>Time</th>
+                                        <th>Disease</th>
+                                        <th>Status</th>
+                                        <th>Bill</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var appointment in Model.TodaysAppointments)
+                                    {
+                                        <tr>
+                                            <td><strong>#@appointment.AppointID</strong></td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-circle bg-primary bg-opacity-10 text-primary me-2">
+                                                        @appointment.PatientName?.Substring(0, 1).ToUpper()
+                                                    </div>
+                                                    <strong>@appointment.PatientName</strong>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <i class="bi bi-clock text-muted me-1"></i>
+                                                @appointment.Date.ToString("hh:mm tt")
+                                            </td>
+                                            <td>
+                                                @if (!string.IsNullOrEmpty(appointment.Disease))
+                                                {
+                                                    <span class="badge bg-light text-dark">@appointment.Disease</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">Not diagnosed</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (appointment.AppointmentStatus == 1)
+                                                {
+                                                    <span class="badge bg-success">
+                                                        <i class="bi bi-check-circle me-1"></i>Approved
+                                                    </span>
+                                                }
+                                                else if (appointment.AppointmentStatus == 2)
+                                                {
+                                                    <span class="badge bg-warning text-dark">
+                                                        <i class="bi bi-hourglass-split me-1"></i>Pending
+                                                    </span>
+                                                }
+                                                else if (appointment.AppointmentStatus == 3)
+                                                {
+                                                    <span class="badge bg-info">
+                                                        <i class="bi bi-check-all me-1"></i>Completed
+                                                    </span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (!string.IsNullOrEmpty(appointment.BillAmount))
+                                                {
+                                                    <div>
+                                                        <strong class="text-success">$@appointment.BillAmount</strong>
+                                                        <br>
+                                                        @if (appointment.BillStatus == "Paid")
+                                                        {
+                                                            <small class="badge bg-success">Paid</small>
+                                                        }
+                                                        else
+                                                        {
+                                                            <small class="badge bg-danger">Unpaid</small>
+                                                        }
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">-</span>
+                                                }
+                                            </td>
+                                            <td class="text-center">
+                                                @if (appointment.AppointmentStatus == 1)
+                                                {
+                                                    <a asp-page="UpdatePrescription" asp-route-id="@appointment.AppointID"
+                                                       class="btn btn-sm btn-primary me-1">
+                                                        <i class="bi bi-prescription2"></i> Prescribe
+                                                    </a>
+                                                }
+                                                else if (appointment.AppointmentStatus == 3)
+                                                {
+                                                    <a asp-page="UpdatePrescription" asp-route-id="@appointment.AppointID"
+                                                       class="btn btn-sm btn-info me-1">
+                                                        <i class="bi bi-eye"></i> View
+                                                    </a>
+                                                    @if (appointment.BillStatus != "Paid")
+                                                    {
+                                                        <a asp-page="GenerateBill" asp-route-id="@appointment.AppointID"
+                                                           class="btn btn-sm btn-success">
+                                                            <i class="bi bi-receipt"></i> Bill
+                                                        </a>
+                                                    }
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="bi bi-calendar-x text-muted" style="font-size: 4rem;"></i>
+                            <h4 class="text-muted mt-3">No Appointments Today</h4>
+                            <p class="text-muted">You don't have any appointments scheduled for today.</p>
+                            <a asp-page="Index" class="btn btn-primary mt-3">
+                                <i class="bi bi-house-door"></i> Back to Dashboard
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (Model.TodaysAppointments != null && Model.TodaysAppointments.Any())
+    {
+        <div class="row mt-4">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-white border-0 py-3">
+                        <h6 class="card-title mb-0">
+                            <i class="bi bi-pie-chart text-primary me-2"></i>
+                            Appointment Summary
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-6 mb-3">
+                                <h5 class="text-primary">@Model.TodaysAppointments.Count(a => a.AppointmentStatus == 1)</h5>
+                                <small class="text-muted">Approved</small>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <h5 class="text-info">@Model.TodaysAppointments.Count(a => a.AppointmentStatus == 3)</h5>
+                                <small class="text-muted">Completed</small>
+                            </div>
+                            <div class="col-6">
+                                <h5 class="text-success">@Model.TodaysAppointments.Count(a => a.BillStatus == "Paid")</h5>
+                                <small class="text-muted">Bills Paid</small>
+                            </div>
+                            <div class="col-6">
+                                <h5 class="text-danger">@Model.TodaysAppointments.Count(a => a.BillStatus == "Unpaid")</h5>
+                                <small class="text-muted">Bills Pending</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm bg-light">
+                    <div class="card-body">
+                        <h6 class="text-muted mb-3">
+                            <i class="bi bi-info-circle me-2"></i>Quick Tips
+                        </h6>
+                        <ul class="mb-0 text-muted small">
+                            <li>Click "Prescribe" to add diagnosis and prescription for approved appointments.</li>
+                            <li>Completed appointments can be viewed but not modified.</li>
+                            <li>Generate bills for completed appointments with unpaid status.</li>
+                            <li>Use the refresh button to see the latest updates.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        // Auto-dismiss alerts after 5 seconds
+        setTimeout(function() {
+            var alerts = document.querySelectorAll('.alert');
+            alerts.forEach(function(alert) {
+                var bsAlert = new bootstrap.Alert(alert);
+                bsAlert.close();
+            });
+        }, 5000);
+    </script>
+}
+
+<style>
+    .avatar-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+</style>

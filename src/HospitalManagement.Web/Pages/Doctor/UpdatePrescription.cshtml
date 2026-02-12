@@ -1,0 +1,260 @@
+@page "{id:int?}"
+@model HospitalManagement.Web.Pages.Doctor.UpdatePrescriptionModel
+@{
+    ViewData["Title"] = "Update Prescription";
+}
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-page="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a asp-page="TodaysAppointments">Today's Appointments</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Update Prescription</li>
+                </ol>
+            </nav>
+            <h1 class="display-5 text-primary">
+                @if (Model.IsReadOnly)
+                {
+                    <text>View Prescription Details</text>
+                }
+                else
+                {
+                    <text>Update Prescription & Treatment</text>
+                }
+            </h1>
+            <p class="lead text-muted">Appointment #@Model.AppointmentId</p>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>@Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i>@Model.SuccessMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-person text-primary me-2"></i>
+                        Patient Information
+                    </h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.AppointmentDetails != null)
+                    {
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Patient Name</label>
+                                <p class="fw-bold">@Model.AppointmentDetails.PatientName</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Appointment Date & Time</label>
+                                <p class="fw-bold">@Model.AppointmentDetails.Date?.ToString("MMM dd, yyyy hh:mm tt")</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Appointment Status</label>
+                                <p>
+                                    @if (Model.AppointmentDetails.AppointmentStatus == 1)
+                                    {
+                                        <span class="badge bg-success">Approved</span>
+                                    }
+                                    else if (Model.AppointmentDetails.AppointmentStatus == 3)
+                                    {
+                                        <span class="badge bg-info">Completed</span>
+                                    }
+                                </p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Bill Amount</label>
+                                <p class="fw-bold text-success">$@Model.AppointmentDetails.BillAmount</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-prescription2 text-primary me-2"></i>
+                        Treatment & Prescription Details
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <input type="hidden" asp-for="AppointmentId" />
+
+                        <div class="mb-4">
+                            <label asp-for="Disease" class="form-label fw-bold">
+                                Diagnosed Disease <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="Disease" class="form-control form-control-lg"
+                                   placeholder="Enter the diagnosed disease or condition"
+                                   readonly="@Model.IsReadOnly" required />
+                            <span asp-validation-for="Disease" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Progress" class="form-label fw-bold">
+                                Progress Made <span class="text-danger">*</span>
+                            </label>
+                            <textarea asp-for="Progress" class="form-control" rows="4"
+                                      placeholder="Describe the patient's progress and current condition"
+                                      readonly="@Model.IsReadOnly" required></textarea>
+                            <span asp-validation-for="Progress" class="text-danger"></span>
+                            <small class="text-muted">Include observations, vital signs, and improvements or concerns.</small>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Prescription" class="form-label fw-bold">
+                                Prescription <span class="text-danger">*</span>
+                            </label>
+                            <textarea asp-for="Prescription" class="form-control" rows="6"
+                                      placeholder="Enter the prescription details including medications, dosage, and instructions"
+                                      readonly="@Model.IsReadOnly" required></textarea>
+                            <span asp-validation-for="Prescription" class="text-danger"></span>
+                            <small class="text-muted">Include medication names, dosages, frequency, and duration.</small>
+                        </div>
+
+                        @if (!Model.IsReadOnly)
+                        {
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" asp-for="MarkAsCompleted" id="markAsCompleted">
+                                    <label class="form-check-label fw-bold" for="markAsCompleted">
+                                        Mark this appointment as completed
+                                    </label>
+                                </div>
+                                <small class="text-muted d-block mt-1">
+                                    Check this box if the treatment is complete and the appointment should be closed.
+                                </small>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" asp-for="IsBillPaid" id="isBillPaid">
+                                    <label class="form-check-label" for="isBillPaid">
+                                        Bill has been paid
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <a asp-page="TodaysAppointments" class="btn btn-outline-secondary btn-lg">
+                                    <i class="bi bi-x-circle"></i> Cancel
+                                </a>
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-check-circle"></i> Save Prescription
+                                </button>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-info" role="alert">
+                                <i class="bi bi-info-circle me-2"></i>
+                                This appointment has been completed. The prescription details are shown in read-only mode.
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <a asp-page="TodaysAppointments" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-arrow-left"></i> Back to Appointments
+                                </a>
+                                <button type="button" onclick="window.print()" class="btn btn-outline-primary btn-lg">
+                                    <i class="bi bi-printer"></i> Print
+                                </button>
+                            </div>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm mb-4 bg-light">
+                <div class="card-header bg-white border-0 py-3">
+                    <h6 class="card-title mb-0">
+                        <i class="bi bi-lightbulb text-warning me-2"></i>
+                        Quick Tips
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <ul class="mb-0 text-muted small">
+                        <li class="mb-2">Be specific and clear in your diagnosis.</li>
+                        <li class="mb-2">Document all observations and vital signs in the progress section.</li>
+                        <li class="mb-2">Include medication names, dosages, frequency, and duration.</li>
+                        <li class="mb-2">Add any dietary or lifestyle recommendations.</li>
+                        <li class="mb-2">Mention follow-up appointment requirements if needed.</li>
+                        <li>Mark as completed only when treatment is finished.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-0 py-3">
+                    <h6 class="card-title mb-0">
+                        <i class="bi bi-shield-check text-success me-2"></i>
+                        Best Practices
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="bi bi-check-circle text-success me-2 mt-1"></i>
+                        <small class="text-muted">Use medical terminology appropriately</small>
+                    </div>
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="bi bi-check-circle text-success me-2 mt-1"></i>
+                        <small class="text-muted">Double-check medication names and dosages</small>
+                    </div>
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="bi bi-check-circle text-success me-2 mt-1"></i>
+                        <small class="text-muted">Document allergies and contraindications</small>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <i class="bi bi-check-circle text-success me-2 mt-1"></i>
+                        <small class="text-muted">Maintain professional and clear language</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        // Auto-dismiss alerts after 5 seconds
+        setTimeout(function() {
+            var alerts = document.querySelectorAll('.alert');
+            alerts.forEach(function(alert) {
+                var bsAlert = new bootstrap.Alert(alert);
+                bsAlert.close();
+            });
+        }, 5000);
+    </script>
+}
+
+<style>
+    @@media print {
+        .no-print, nav, .breadcrumb, .btn, .card:last-child {
+            display: none !important;
+        }
+        .card {
+            border: none !important;
+            box-shadow: none !important;
+        }
+    }
+</style>

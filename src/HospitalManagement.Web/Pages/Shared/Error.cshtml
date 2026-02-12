@@ -1,0 +1,55 @@
+@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-body text-center p-5">
+                    <div class="mb-4">
+                        <i class="fas fa-exclamation-triangle text-danger" style="font-size: 4rem;"></i>
+                    </div>
+                    <h1 class="display-4 text-danger mb-3">Error</h1>
+                    <p class="lead mb-4">An error occurred while processing your request.</p>
+
+                    @if (Model.ShowRequestId)
+                    {
+                        <div class="alert alert-secondary">
+                            <strong>Request ID:</strong> @Model.RequestId
+                        </div>
+                    }
+
+                    <div class="mt-4">
+                        <h5 class="mb-3">What can you do?</h5>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <a href="javascript:history.back()" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Go Back
+                            </a>
+                            <a href="/" class="btn btn-primary">
+                                <i class="fas fa-home"></i> Go to Homepage
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 text-muted">
+                        <p class="mb-0">If the problem persists, please contact the system administrator.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Log error details (in production, send to logging service)
+        console.error('Error occurred at: ' + new Date().toISOString());
+        @if (Model.ShowRequestId)
+        {
+            <text>console.error('Request ID: @Model.RequestId');</text>
+        }
+    </script>
+}

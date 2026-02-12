@@ -1,0 +1,217 @@
+@page
+@model HospitalManagement.Web.Pages.Patient.BillHistoryModel
+@{
+    ViewData["Title"] = "Bill History";
+}
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="mb-3">Bill History</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-page="./Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Bill History</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>@Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <!-- Summary Cards -->
+    @if (Model.BillHistory != null && Model.BillHistory.Any())
+    {
+        <div class="row g-4 mb-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="bi bi-receipt fs-1 text-primary mb-3 d-block"></i>
+                        <h6 class="text-muted">Total Bills</h6>
+                        <h3 class="mb-0">@Model.TotalBills</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="bi bi-cash-stack fs-1 text-success mb-3 d-block"></i>
+                        <h6 class="text-muted">Total Amount</h6>
+                        <h3 class="mb-0 text-success">@Model.TotalAmount.ToString("C")</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="bi bi-exclamation-triangle fs-1 text-danger mb-3 d-block"></i>
+                        <h6 class="text-muted">Unpaid Bills</h6>
+                        <h3 class="mb-0 text-danger">@Model.UnpaidCount</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bills Table -->
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="bi bi-receipt me-2"></i>All Bills</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>#</th>
+                                <th>Date</th>
+                                <th>Doctor Name</th>
+                                <th>Bill Amount</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int rowNumber = 1;
+                            }
+                            @foreach (var bill in Model.BillHistory)
+                            {
+                                <tr>
+                                    <td>@rowNumber</td>
+                                    <td>
+                                        <i class="bi bi-calendar3 me-2 text-muted"></i>
+                                        @bill.Date
+                                    </td>
+                                    <td>
+                                        <i class="bi bi-person-badge me-2 text-primary"></i>
+                                        @bill.DoctorName
+                                    </td>
+                                    <td>
+                                        <strong class="text-success">@bill.BillAmount.ToString("C")</strong>
+                                    </td>
+                                    <td>
+                                        @if (bill.BillStatus == "Paid")
+                                        {
+                                            <span class="badge bg-success">
+                                                <i class="bi bi-check-circle me-1"></i>Paid
+                                            </span>
+                                        }
+                                        else if (bill.BillStatus == "Unpaid")
+                                        {
+                                            <span class="badge bg-danger">
+                                                <i class="bi bi-exclamation-circle me-1"></i>Unpaid
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">@bill.BillStatus</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (bill.BillStatus == "Unpaid")
+                                        {
+                                            <button class="btn btn-sm btn-warning" disabled>
+                                                <i class="bi bi-cash me-1"></i>Pay Now
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-sm btn-outline-secondary" disabled>
+                                                <i class="bi bi-check-circle me-1"></i>Paid
+                                            </button>
+                                        }
+                                    </td>
+                                </tr>
+                                rowNumber++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer bg-light">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0 text-muted">
+                            <i class="bi bi-info-circle me-2"></i>
+                            Showing @Model.BillHistory.Count() bill(s)
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <strong>Total: @Model.TotalAmount.ToString("C")</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Information -->
+        @if (Model.UnpaidCount > 0)
+        {
+            <div class="card shadow-sm mt-4">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Payment Notice</h5>
+                </div>
+                <div class="card-body">
+                    <p class="mb-0">
+                        You have <strong>@Model.UnpaidCount unpaid bill(s)</strong>.
+                        Please visit the hospital reception to make your payment.
+                    </p>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="card shadow-sm">
+            <div class="card-body text-center py-5">
+                <i class="bi bi-receipt fs-1 text-muted d-block mb-3"></i>
+                <h5 class="text-muted">No Bill History</h5>
+                <p class="text-muted">You don't have any bills yet. Your bills will appear here after completing appointments.</p>
+                <a asp-page="./BookAppointment" class="btn btn-primary mt-3">
+                    <i class="bi bi-calendar-plus me-2"></i>Book an Appointment
+                </a>
+            </div>
+        </div>
+    }
+
+    <!-- Quick Navigation -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0"><i class="bi bi-lightning-charge me-2"></i>Quick Navigation</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-wrap gap-2">
+                        <a asp-page="./CurrentAppointment" class="btn btn-outline-primary">
+                            <i class="bi bi-calendar-check me-2"></i>Current Appointment
+                        </a>
+                        <a asp-page="./TreatmentHistory" class="btn btn-outline-info">
+                            <i class="bi bi-clipboard2-pulse me-2"></i>Treatment History
+                        </a>
+                        <a asp-page="./Index" class="btn btn-outline-secondary">
+                            <i class="bi bi-house me-2"></i>Dashboard
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .table tbody tr {
+            transition: background-color 0.2s;
+        }
+
+        .table tbody tr:hover {
+            background-color: rgba(0, 123, 255, 0.05);
+        }
+    </style>
+}

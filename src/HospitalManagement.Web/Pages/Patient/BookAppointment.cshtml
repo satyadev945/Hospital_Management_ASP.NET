@@ -1,0 +1,211 @@
+@page
+@model HospitalManagement.Web.Pages.Patient.BookAppointmentModel
+@{
+    ViewData["Title"] = "Book Appointment";
+}
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="mb-3">Book Appointment</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-page="./Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Book Appointment</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>@Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i>@Model.SuccessMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model.HasActiveAppointment)
+    {
+        <div class="alert alert-warning">
+            <h5 class="alert-heading"><i class="bi bi-exclamation-triangle-fill me-2"></i>Active Appointment Found</h5>
+            <p class="mb-0">You already have an active appointment. Please complete or cancel your current appointment before booking a new one.</p>
+            <hr>
+            <a asp-page="./CurrentAppointment" class="btn btn-sm btn-warning">View Current Appointment</a>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            <!-- Step 1: Select Doctor -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="bi bi-1-circle me-2"></i>Step 1: Select Doctor</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="get" id="doctorSelectForm">
+                            <div class="mb-3">
+                                <label for="department" class="form-label">Select Department</label>
+                                <select class="form-select" id="department" name="department" onchange="this.form.submit()">
+                                    <option value="">-- Select Department --</option>
+                                    @if (Model.Departments != null)
+                                    {
+                                        foreach (var dept in Model.Departments)
+                                        {
+                                            <option value="@dept.DeptName" selected="@(dept.DeptName == Model.SelectedDepartment)">
+                                                @dept.DeptName (@dept.NumberOfDoctors doctors)
+                                            </option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="doctorId" class="form-label">Select Doctor</label>
+                                <select class="form-select" id="doctorId" name="doctorId" onchange="this.form.submit()" required>
+                                    <option value="">-- Select Doctor --</option>
+                                    @if (Model.Doctors != null)
+                                    {
+                                        foreach (var doctor in Model.Doctors)
+                                        {
+                                            <option value="@doctor.DoctorID" selected="@(doctor.DoctorID == Model.SelectedDoctorId)">
+                                                @doctor.Name - @doctor.Specialization (@doctor.ChargesPerVisit.ToString("C"))
+                                            </option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </form>
+
+                        @if (Model.SelectedDoctor != null)
+                        {
+                            <div class="card bg-light mt-3">
+                                <div class="card-body">
+                                    <h6 class="card-title">Selected Doctor</h6>
+                                    <p class="mb-1"><strong>Name:</strong> @Model.SelectedDoctor.Name</p>
+                                    <p class="mb-1"><strong>Department:</strong> @Model.SelectedDoctor.DepartmentName</p>
+                                    <p class="mb-1"><strong>Specialization:</strong> @Model.SelectedDoctor.Specialization</p>
+                                    <p class="mb-0"><strong>Charges:</strong> <span class="text-success">@Model.SelectedDoctor.ChargesPerVisit.ToString("C")</span></p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Select Date and Time -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="bi bi-2-circle me-2"></i>Step 2: Select Date & Time</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (Model.SelectedDoctorId > 0)
+                        {
+                            <form method="post">
+                                <input type="hidden" name="doctorId" value="@Model.SelectedDoctorId" />
+
+                                <div class="mb-3">
+                                    <label for="appointmentDate" class="form-label">Select Date</label>
+                                    <input type="date"
+                                           class="form-control"
+                                           id="appointmentDate"
+                                           name="appointmentDate"
+                                           value="@Model.SelectedDate?.ToString("yyyy-MM-dd")"
+                                           min="@DateTime.Now.ToString("yyyy-MM-dd")"
+                                           max="@DateTime.Now.AddMonths(1).ToString("yyyy-MM-dd")"
+                                           onchange="this.form.submit()"
+                                           required />
+                                </div>
+
+                                @if (Model.AvailableSlots != null && Model.AvailableSlots.Any())
+                                {
+                                    <div class="mb-3">
+                                        <label class="form-label">Available Time Slots</label>
+                                        <div class="d-grid gap-2">
+                                            @foreach (var slot in Model.AvailableSlots)
+                                            {
+                                                <button type="submit"
+                                                        name="selectedSlot"
+                                                        value="@slot.SlotHour"
+                                                        class="btn btn-outline-primary text-start">
+                                                    <i class="bi bi-clock me-2"></i>@slot.FreeSlot
+                                                </button>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                                else if (Model.SelectedDate.HasValue)
+                                {
+                                    <div class="alert alert-warning">
+                                        <i class="bi bi-exclamation-triangle me-2"></i>
+                                        No available slots for the selected date. Please choose another date.
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="alert alert-info">
+                                        <i class="bi bi-info-circle me-2"></i>
+                                        Please select a date to view available time slots.
+                                    </div>
+                                }
+                            </form>
+                        }
+                        else
+                        {
+                            <div class="alert alert-info">
+                                <i class="bi bi-info-circle me-2"></i>
+                                Please select a doctor first to view available time slots.
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Instructions -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>Booking Instructions</h5>
+                    </div>
+                    <div class="card-body">
+                        <ol class="mb-0">
+                            <li class="mb-2">Select a department to view doctors in that specialty.</li>
+                            <li class="mb-2">Choose your preferred doctor from the list.</li>
+                            <li class="mb-2">Select a date for your appointment (up to 1 month in advance).</li>
+                            <li class="mb-2">Choose an available time slot that suits your schedule.</li>
+                            <li class="mb-2">Your appointment will be sent for approval by the doctor.</li>
+                            <li class="mb-0">You will receive a notification once the doctor approves your appointment.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        // Prevent double submission
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function() {
+                const buttons = this.querySelectorAll('button[type="submit"]');
+                buttons.forEach(btn => {
+                    btn.disabled = true;
+                    btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Processing...';
+                });
+            });
+        });
+    </script>
+}

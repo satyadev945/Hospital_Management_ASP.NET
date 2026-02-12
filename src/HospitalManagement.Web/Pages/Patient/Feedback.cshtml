@@ -1,0 +1,256 @@
+@page
+@model HospitalManagement.Web.Pages.Patient.FeedbackModel
+@{
+    ViewData["Title"] = "Feedback";
+}
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="mb-3">Provide Feedback</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-page="./Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Feedback</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>@Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i>@Model.SuccessMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model.PendingFeedback != null)
+    {
+        <div class="row g-4">
+            <!-- Appointment Details -->
+            <div class="col-lg-5">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="bi bi-calendar-check me-2"></i>Appointment Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="text-muted small">Appointment ID</label>
+                            <p class="fw-bold">#@Model.PendingFeedback.AppointID</p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="text-muted small">Doctor Name</label>
+                            <p class="fw-bold">
+                                <i class="bi bi-person-badge me-2 text-primary"></i>
+                                @Model.PendingFeedback.DoctorName
+                            </p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="text-muted small">Appointment Date</label>
+                            <p class="fw-bold">
+                                <i class="bi bi-calendar3 me-2"></i>
+                                @Model.PendingFeedback.Date?.ToString("MMMM dd, yyyy")
+                            </p>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(Model.PendingFeedback.Disease))
+                        {
+                            <div class="mb-3">
+                                <label class="text-muted small">Diagnosed Disease</label>
+                                <p class="fw-bold">@Model.PendingFeedback.Disease</p>
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrEmpty(Model.PendingFeedback.Prescription))
+                        {
+                            <div class="mb-3">
+                                <label class="text-muted small">Prescription</label>
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <p class="mb-0 small font-monospace">@Model.PendingFeedback.Prescription</p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        <div class="alert alert-info mb-0">
+                            <i class="bi bi-info-circle me-2"></i>
+                            Your feedback helps us improve our services and assists other patients in choosing the right doctor.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback Form -->
+            <div class="col-lg-7">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="bi bi-chat-square-text me-2"></i>Submit Your Feedback</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            <input type="hidden" asp-for="AppointmentId" value="@Model.PendingFeedback.AppointID" />
+
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">
+                                    <i class="bi bi-star me-2"></i>Overall Experience
+                                </label>
+                                <p class="text-muted small">Rate your overall experience with the doctor and treatment</p>
+                                <div class="btn-group w-100" role="group">
+                                    <input type="radio" class="btn-check" name="rating" id="rating1" value="1" required>
+                                    <label class="btn btn-outline-danger" for="rating1">
+                                        <i class="bi bi-star-fill"></i> Poor
+                                    </label>
+
+                                    <input type="radio" class="btn-check" name="rating" id="rating2" value="2">
+                                    <label class="btn btn-outline-warning" for="rating2">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> Fair
+                                    </label>
+
+                                    <input type="radio" class="btn-check" name="rating" id="rating3" value="3" checked>
+                                    <label class="btn btn-outline-primary" for="rating3">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> Good
+                                    </label>
+
+                                    <input type="radio" class="btn-check" name="rating" id="rating4" value="4">
+                                    <label class="btn btn-outline-info" for="rating4">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> Very Good
+                                    </label>
+
+                                    <input type="radio" class="btn-check" name="rating" id="rating5" value="5">
+                                    <label class="btn btn-outline-success" for="rating5">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> Excellent
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="comments" class="form-label fw-bold">
+                                    <i class="bi bi-chat-left-text me-2"></i>Additional Comments (Optional)
+                                </label>
+                                <p class="text-muted small">Share your experience, suggestions, or any concerns</p>
+                                <textarea class="form-control"
+                                          id="comments"
+                                          name="comments"
+                                          rows="6"
+                                          placeholder="Please share your thoughts about the treatment, doctor's behavior, hospital facilities, etc."></textarea>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="wouldRecommend" name="wouldRecommend">
+                                    <label class="form-check-label" for="wouldRecommend">
+                                        <i class="bi bi-hand-thumbs-up me-2"></i>
+                                        I would recommend this doctor to others
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-warning">
+                                <i class="bi bi-exclamation-triangle me-2"></i>
+                                <strong>Note:</strong> Once submitted, feedback cannot be edited or deleted. Please review your feedback before submitting.
+                            </div>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <a asp-page="./Index" class="btn btn-outline-secondary">
+                                    <i class="bi bi-x-circle me-2"></i>Cancel
+                                </a>
+                                <button type="submit" class="btn btn-success">
+                                    <i class="bi bi-send me-2"></i>Submit Feedback
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm">
+            <div class="card-body text-center py-5">
+                <i class="bi bi-chat-square-text fs-1 text-muted d-block mb-3"></i>
+                <h5 class="text-muted">No Pending Feedback</h5>
+                <p class="text-muted">You don't have any appointments requiring feedback at the moment.</p>
+                <p class="text-muted">Feedback becomes available after your appointment is completed by the doctor.</p>
+                <div class="mt-4">
+                    <a asp-page="./CurrentAppointment" class="btn btn-primary me-2">
+                        <i class="bi bi-calendar-check me-2"></i>Current Appointment
+                    </a>
+                    <a asp-page="./BookAppointment" class="btn btn-outline-primary">
+                        <i class="bi bi-calendar-plus me-2"></i>Book Appointment
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- Feedback Guidelines -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>Feedback Guidelines</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-success">
+                                <i class="bi bi-check-circle me-2"></i>Do
+                            </h6>
+                            <ul>
+                                <li>Be honest and constructive</li>
+                                <li>Focus on your experience</li>
+                                <li>Mention specific aspects (treatment, behavior, facilities)</li>
+                                <li>Use respectful language</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-danger">
+                                <i class="bi bi-x-circle me-2"></i>Don't
+                            </h6>
+                            <ul>
+                                <li>Use offensive or abusive language</li>
+                                <li>Share personal medical details publicly</li>
+                                <li>Make false or misleading statements</li>
+                                <li>Include contact information</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Form validation and submission handling
+        document.querySelector('form')?.addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Submitting...';
+        });
+
+        // Rating button visual feedback
+        document.querySelectorAll('input[name="rating"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Remove all active states
+                document.querySelectorAll('.btn-check').forEach(btn => {
+                    btn.parentElement.querySelector('label').classList.remove('active');
+                });
+            });
+        });
+    </script>
+}

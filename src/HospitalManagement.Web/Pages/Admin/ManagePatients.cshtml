@@ -1,0 +1,228 @@
+@page
+@model ManagePatientsModel
+@{
+    ViewData["Title"] = "Manage Patients";
+}
+
+<div class="page-header">
+    <h1><i class="fas fa-user-injured"></i> Manage Patients</h1>
+</div>
+
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle"></i> @Model.SuccessMessage
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="fas fa-exclamation-circle"></i> @Model.ErrorMessage
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h5 class="mb-0"><i class="fas fa-list"></i> Patients List</h5>
+            </div>
+            <div class="col-md-6">
+                <form method="get" class="d-flex">
+                    <input type="text" name="searchTerm" class="form-control me-2" placeholder="Search patients..."
+                           value="@Model.SearchTerm" />
+                    <button type="submit" class="btn btn-outline-primary">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        @if (Model.Patients.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>Address</th>
+                            <th>Registered On</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var patient in Model.Patients)
+                        {
+                            <tr>
+                                <td>@patient.PatientID</td>
+                                <td><strong>@patient.Name</strong></td>
+                                <td>@patient.Email</td>
+                                <td>@patient.Phone</td>
+                                <td>
+                                    @{
+                                        var genderIcon = patient.Gender switch
+                                        {
+                                            "M" => "fas fa-mars text-primary",
+                                            "F" => "fas fa-venus text-danger",
+                                            _ => "fas fa-transgender text-info"
+                                        };
+                                        var genderText = patient.Gender switch
+                                        {
+                                            "M" => "Male",
+                                            "F" => "Female",
+                                            _ => "Other"
+                                        };
+                                    }
+                                    <i class="@genderIcon"></i> @genderText
+                                </td>
+                                <td>@patient.Age years</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(patient.Address))
+                                    {
+                                        <span>@(patient.Address.Length > 30 ? patient.Address.Substring(0, 30) + "..." : patient.Address)</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">N/A</span>
+                                    }
+                                </td>
+                                <td>@patient.CreatedDate.ToString("MMM dd, yyyy")</td>
+                                <td>
+                                    @if (patient.IsActive)
+                                    {
+                                        <span class="badge bg-success">Active</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Inactive</span>
+                                    }
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-sm btn-outline-info"
+                                                onclick="viewPatient(@patient.PatientID)">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <a href="/Patient/MedicalHistory/@patient.PatientID" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-file-medical"></i>
+                                        </a>
+                                        @if (patient.IsActive)
+                                        {
+                                            <form method="post" asp-page-handler="Deactivate" class="d-inline"
+                                                  onsubmit="return confirm('Are you sure you want to deactivate this patient?')">
+                                                <input type="hidden" name="patientId" value="@patient.PatientID" />
+                                                <button type="submit" class="btn btn-sm btn-outline-warning">
+                                                    <i class="fas fa-ban"></i>
+                                                </button>
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <form method="post" asp-page-handler="Activate" class="d-inline">
+                                                <input type="hidden" name="patientId" value="@patient.PatientID" />
+                                                <button type="submit" class="btn btn-sm btn-outline-success">
+                                                    <i class="fas fa-check"></i>
+                                                </button>
+                                            </form>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-3">
+                <p class="text-muted mb-0">
+                    <i class="fas fa-info-circle"></i> Showing @Model.Patients.Count patient(s)
+                </p>
+            </div>
+        }
+        else
+        {
+            <div class="text-center text-muted py-5">
+                <i class="fas fa-user-injured fa-4x mb-3"></i>
+                <p class="h5">No patients found</p>
+                @if (!string.IsNullOrEmpty(Model.SearchTerm))
+                {
+                    <p>Try adjusting your search criteria</p>
+                    <a href="/Admin/ManagePatients" class="btn btn-outline-primary">Clear Search</a>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Patient Statistics -->
+<div class="row mt-4">
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h3 class="text-primary">@Model.TotalPatients</h3>
+                <p class="text-muted mb-0">Total Patients</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h3 class="text-success">@Model.ActivePatients</h3>
+                <p class="text-muted mb-0">Active Patients</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h3 class="text-info">@Model.NewPatientsThisMonth</h3>
+                <p class="text-muted mb-0">New This Month</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h3 class="text-warning">@Model.TotalAppointments</h3>
+                <p class="text-muted mb-0">Total Appointments</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View Patient Modal -->
+<div class="modal fade" id="viewPatientModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fas fa-user-injured"></i> Patient Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="patientDetailsContent">
+                <!-- Content loaded via JavaScript -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function viewPatient(patientId) {
+            alert('View patient details for ID: ' + patientId);
+            // In production, load patient details via AJAX
+        }
+    </script>
+}

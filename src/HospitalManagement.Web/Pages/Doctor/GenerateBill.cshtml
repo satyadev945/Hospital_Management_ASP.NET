@@ -1,0 +1,369 @@
+@page "{id:int?}"
+@model HospitalManagement.Web.Pages.Doctor.GenerateBillModel
+@{
+    ViewData["Title"] = "Generate Bill";
+}
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-page="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a asp-page="TodaysAppointments">Today's Appointments</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Generate Bill</li>
+                </ol>
+            </nav>
+            <h1 class="display-5 text-primary">Generate Medical Bill</h1>
+            <p class="lead text-muted">Appointment #@Model.AppointmentId</p>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>@Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i>@Model.SuccessMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm mb-4" id="billContent">
+                <div class="card-header bg-primary text-white py-4">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h3 class="mb-0">
+                                <i class="bi bi-hospital me-2"></i>
+                                Hospital Management System
+                            </h3>
+                            <p class="mb-0 small">Medical Bill Invoice</p>
+                        </div>
+                        <div class="col-auto text-end">
+                            <h5 class="mb-0">Bill #@Model.AppointmentId</h5>
+                            <small>Date: @DateTime.Now.ToString("MMM dd, yyyy")</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body p-4">
+                    @if (Model.AppointmentDetails != null)
+                    {
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h6 class="text-primary mb-3">Patient Information</h6>
+                                <div class="mb-2">
+                                    <strong>Name:</strong> @Model.AppointmentDetails.PatientName
+                                </div>
+                                <div class="mb-2">
+                                    <strong>Patient ID:</strong> @Model.AppointmentDetails.PatientID
+                                </div>
+                                <div class="mb-2">
+                                    <strong>Appointment Date:</strong> @Model.AppointmentDetails.Date?.ToString("MMM dd, yyyy")
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="text-primary mb-3">Doctor Information</h6>
+                                <div class="mb-2">
+                                    <strong>Doctor:</strong> @Model.DoctorInfo?.Name
+                                </div>
+                                <div class="mb-2">
+                                    <strong>Specialization:</strong> @Model.DoctorInfo?.Specialization
+                                </div>
+                                <div class="mb-2">
+                                    <strong>Department:</strong> @Model.DoctorInfo?.DepartmentName
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h6 class="text-primary mb-3">Treatment Details</h6>
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="mb-2">
+                                    <strong>Diagnosis:</strong>
+                                    <span class="badge bg-danger bg-opacity-10 text-danger ms-2">
+                                        @(!string.IsNullOrEmpty(Model.AppointmentDetails.Disease) ? Model.AppointmentDetails.Disease : "Not specified")
+                                    </span>
+                                </div>
+                                <div class="mb-2">
+                                    <strong>Treatment Progress:</strong>
+                                    <p class="mt-1 text-muted">
+                                        @(!string.IsNullOrEmpty(Model.AppointmentDetails.Progress) ? Model.AppointmentDetails.Progress : "No progress notes")
+                                    </p>
+                                </div>
+                                <div class="mb-2">
+                                    <strong>Prescription:</strong>
+                                    <p class="mt-1 text-muted">
+                                        @(!string.IsNullOrEmpty(Model.AppointmentDetails.Prescription) ? Model.AppointmentDetails.Prescription : "No prescription")
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h6 class="text-primary mb-3">Billing Details</h6>
+                        <div class="table-responsive mb-4">
+                            <table class="table table-borderless">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Description</th>
+                                        <th class="text-end">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <i class="bi bi-capsule text-primary me-2"></i>
+                                            Consultation Fee
+                                        </td>
+                                        <td class="text-end">$@Model.ConsultationFee?.ToString("F2")</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="bi bi-prescription2 text-success me-2"></i>
+                                            Medication Charges
+                                        </td>
+                                        <td class="text-end">$@Model.MedicationCharges.ToString("F2")</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="bi bi-clipboard-pulse text-info me-2"></i>
+                                            Laboratory Tests
+                                        </td>
+                                        <td class="text-end">$@Model.LabCharges.ToString("F2")</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="bi bi-three-dots text-warning me-2"></i>
+                                            Other Charges
+                                        </td>
+                                        <td class="text-end">$@Model.OtherCharges.ToString("F2")</td>
+                                    </tr>
+                                    <tr class="border-top">
+                                        <td><strong>Subtotal</strong></td>
+                                        <td class="text-end"><strong>$@Model.Subtotal.ToString("F2")</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="bi bi-tag text-danger me-2"></i>
+                                            Discount (@Model.DiscountPercentage%)
+                                        </td>
+                                        <td class="text-end text-danger">- $@Model.DiscountAmount.ToString("F2")</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="bi bi-receipt text-secondary me-2"></i>
+                                            Tax (@Model.TaxPercentage%)
+                                        </td>
+                                        <td class="text-end">$@Model.TaxAmount.ToString("F2")</td>
+                                    </tr>
+                                    <tr class="border-top border-2">
+                                        <td><h5 class="mb-0 text-primary">Total Amount</h5></td>
+                                        <td class="text-end"><h5 class="mb-0 text-primary">$@Model.TotalAmount.ToString("F2")</h5></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <form method="post">
+                            <input type="hidden" asp-for="AppointmentId" />
+                            <input type="hidden" asp-for="ConsultationFee" />
+                            <input type="hidden" asp-for="MedicationCharges" />
+                            <input type="hidden" asp-for="LabCharges" />
+                            <input type="hidden" asp-for="OtherCharges" />
+                            <input type="hidden" asp-for="DiscountAmount" />
+                            <input type="hidden" asp-for="TaxAmount" />
+                            <input type="hidden" asp-for="TotalAmount" />
+
+                            @if (Model.AppointmentDetails.BillStatus != "Paid")
+                            {
+                                <div class="alert alert-warning d-flex align-items-center" role="alert">
+                                    <i class="bi bi-exclamation-triangle-fill me-2 fs-4"></i>
+                                    <div>
+                                        <strong>Payment Pending</strong><br>
+                                        <small>This bill has not been paid yet.</small>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label asp-for="PaymentMethod" class="form-label fw-bold">
+                                        Payment Method <span class="text-danger">*</span>
+                                    </label>
+                                    <select asp-for="PaymentMethod" class="form-select form-select-lg" required>
+                                        <option value="">-- Select Payment Method --</option>
+                                        <option value="Cash">Cash</option>
+                                        <option value="Credit Card">Credit Card</option>
+                                        <option value="Debit Card">Debit Card</option>
+                                        <option value="Insurance">Insurance</option>
+                                        <option value="Bank Transfer">Bank Transfer</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label asp-for="TransactionReference" class="form-label">
+                                        Transaction Reference (Optional)
+                                    </label>
+                                    <input asp-for="TransactionReference" class="form-control"
+                                           placeholder="Enter transaction reference or check number" />
+                                </div>
+
+                                <div class="mb-4">
+                                    <label asp-for="Notes" class="form-label">
+                                        Additional Notes (Optional)
+                                    </label>
+                                    <textarea asp-for="Notes" class="form-control" rows="2"
+                                              placeholder="Enter any additional notes or comments"></textarea>
+                                </div>
+
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <a asp-page="TodaysAppointments" class="btn btn-outline-secondary btn-lg">
+                                        <i class="bi bi-x-circle"></i> Cancel
+                                    </a>
+                                    <button type="button" onclick="window.print()" class="btn btn-outline-primary btn-lg">
+                                        <i class="bi bi-printer"></i> Print Bill
+                                    </button>
+                                    <button type="submit" class="btn btn-success btn-lg">
+                                        <i class="bi bi-check-circle"></i> Mark as Paid
+                                    </button>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-success d-flex align-items-center" role="alert">
+                                    <i class="bi bi-check-circle-fill me-2 fs-4"></i>
+                                    <div>
+                                        <strong>Payment Completed</strong><br>
+                                        <small>This bill has been paid on @DateTime.Now.ToString("MMM dd, yyyy")</small>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <a asp-page="TodaysAppointments" class="btn btn-primary btn-lg">
+                                        <i class="bi bi-arrow-left"></i> Back to Appointments
+                                    </a>
+                                    <button type="button" onclick="window.print()" class="btn btn-outline-primary btn-lg">
+                                        <i class="bi bi-printer"></i> Print Bill
+                                    </button>
+                                </div>
+                            }
+                        </form>
+                    }
+                </div>
+
+                <div class="card-footer bg-light text-muted text-center py-3">
+                    <small>This is a computer-generated bill. No signature is required.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-header bg-white border-0 py-3">
+                    <h6 class="card-title mb-0">
+                        <i class="bi bi-calculator text-primary me-2"></i>
+                        Customize Charges
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <form method="get">
+                        <input type="hidden" name="id" value="@Model.AppointmentId" />
+
+                        <div class="mb-3">
+                            <label class="form-label small">Medication Charges</label>
+                            <input type="number" name="medicationCharges" class="form-control"
+                                   value="@Model.MedicationCharges" step="0.01" min="0" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small">Lab Charges</label>
+                            <input type="number" name="labCharges" class="form-control"
+                                   value="@Model.LabCharges" step="0.01" min="0" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small">Other Charges</label>
+                            <input type="number" name="otherCharges" class="form-control"
+                                   value="@Model.OtherCharges" step="0.01" min="0" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small">Discount (%)</label>
+                            <input type="number" name="discountPercentage" class="form-control"
+                                   value="@Model.DiscountPercentage" step="0.1" min="0" max="100" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small">Tax (%)</label>
+                            <input type="number" name="taxPercentage" class="form-control"
+                                   value="@Model.TaxPercentage" step="0.1" min="0" max="100" />
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-arrow-clockwise"></i> Recalculate
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm bg-light">
+                <div class="card-body">
+                    <h6 class="text-muted mb-3">
+                        <i class="bi bi-info-circle me-2"></i>Billing Information
+                    </h6>
+                    <ul class="mb-0 text-muted small">
+                        <li class="mb-2">Consultation fee is based on doctor's charges.</li>
+                        <li class="mb-2">Add medication and lab test charges as needed.</li>
+                        <li class="mb-2">Apply discounts for special cases or insurance.</li>
+                        <li class="mb-2">Tax is calculated on the discounted amount.</li>
+                        <li>Print the bill before marking as paid for records.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        // Auto-dismiss alerts after 5 seconds
+        setTimeout(function() {
+            var alerts = document.querySelectorAll('.alert');
+            alerts.forEach(function(alert) {
+                var bsAlert = new bootstrap.Alert(alert);
+                bsAlert.close();
+            });
+        }, 5000);
+    </script>
+}
+
+<style>
+    @@media print {
+        .no-print, nav, .breadcrumb, .btn, form, .col-lg-4 {
+            display: none !important;
+        }
+        .col-lg-8 {
+            width: 100% !important;
+        }
+        .card {
+            border: 1px solid #ddd !important;
+            box-shadow: none !important;
+        }
+    }
+</style>

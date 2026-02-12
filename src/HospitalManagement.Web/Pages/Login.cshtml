@@ -1,0 +1,359 @@
+@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Hospital Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .login-image {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .login-image i {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .login-image h2 {
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .login-image p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .login-form {
+            padding: 3rem;
+        }
+
+        .login-form h3 {
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-form p {
+            color: #6c757d;
+            margin-bottom: 2rem;
+        }
+
+        .form-control {
+            padding: 0.75rem 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+
+        .input-group-text {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-right: none;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .input-group .form-control {
+            border-left: none;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .btn-login {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 0.75rem;
+            border-radius: 10px;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+
+        .role-selector {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .role-option {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .role-option:hover {
+            border-color: #667eea;
+            background: #f8f9fa;
+        }
+
+        .role-option input[type="radio"] {
+            display: none;
+        }
+
+        .role-option input[type="radio"]:checked + label {
+            color: #667eea;
+        }
+
+        .role-option.active {
+            border-color: #667eea;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        }
+
+        .role-option i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #667eea;
+        }
+
+        .role-option label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e9ecef;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 1rem;
+            position: relative;
+            color: #6c757d;
+        }
+
+        .alert {
+            border: none;
+            border-radius: 10px;
+        }
+
+        @@media (max-width: 768px) {
+            .login-image {
+                display: none;
+            }
+
+            .login-form {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="login-container">
+                    <div class="row g-0">
+                        <div class="col-lg-5 login-image">
+                            <i class="fas fa-hospital-alt"></i>
+                            <h2>Hospital Management System</h2>
+                            <p>Providing quality healthcare with efficient management</p>
+                            <div class="mt-4">
+                                <p class="mb-2"><i class="fas fa-check-circle"></i> Secure Authentication</p>
+                                <p class="mb-2"><i class="fas fa-check-circle"></i> Easy Appointment Booking</p>
+                                <p class="mb-2"><i class="fas fa-check-circle"></i> 24/7 Healthcare Support</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 login-form">
+                            <h3>Welcome Back!</h3>
+                            <p>Please login to your account</p>
+
+                            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                            {
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <i class="fas fa-exclamation-circle"></i> @Model.ErrorMessage
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            }
+
+                            @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+                            {
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <i class="fas fa-check-circle"></i> @Model.SuccessMessage
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            }
+
+                            <form method="post" class="needs-validation" novalidate>
+                                <div class="role-selector">
+                                    <div class="role-option @(Model.UserType == 1 ? "active" : "")" onclick="selectRole(1)">
+                                        <input type="radio" asp-for="UserType" value="1" id="role1" checked />
+                                        <label for="role1">
+                                            <i class="fas fa-user-injured d-block"></i>
+                                            Patient
+                                        </label>
+                                    </div>
+                                    <div class="role-option @(Model.UserType == 2 ? "active" : "")" onclick="selectRole(2)">
+                                        <input type="radio" asp-for="UserType" value="2" id="role2" />
+                                        <label for="role2">
+                                            <i class="fas fa-user-md d-block"></i>
+                                            Doctor
+                                        </label>
+                                    </div>
+                                    <div class="role-option @(Model.UserType == 3 ? "active" : "")" onclick="selectRole(3)">
+                                        <input type="radio" asp-for="UserType" value="3" id="role3" />
+                                        <label for="role3">
+                                            <i class="fas fa-user-shield d-block"></i>
+                                            Admin
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label asp-for="Email" class="form-label">Email Address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
+                                        <input asp-for="Email" class="form-control" placeholder="Enter your email" required />
+                                    </div>
+                                    <span asp-validation-for="Email" class="text-danger small"></span>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label asp-for="Password" class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                        <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" required />
+                                        <button class="btn btn-outline-secondary" type="button" onclick="togglePassword()">
+                                            <i class="fas fa-eye" id="toggleIcon"></i>
+                                        </button>
+                                    </div>
+                                    <span asp-validation-for="Password" class="text-danger small"></span>
+                                </div>
+
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="rememberMe" asp-for="RememberMe" />
+                                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                                </div>
+
+                                <button type="submit" class="btn btn-login w-100 mb-3">
+                                    <i class="fas fa-sign-in-alt"></i> Login
+                                </button>
+
+                                <div class="text-center">
+                                    <a href="/ForgotPassword" class="text-decoration-none">Forgot Password?</a>
+                                </div>
+
+                                <div class="divider">
+                                    <span>New to our platform?</span>
+                                </div>
+
+                                <div class="text-center">
+                                    <a href="/Register" class="btn btn-outline-primary w-100">
+                                        <i class="fas fa-user-plus"></i> Create an Account
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function selectRole(roleId) {
+            document.querySelectorAll('.role-option').forEach(el => el.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            document.getElementById('role' + roleId).checked = true;
+        }
+
+        function togglePassword() {
+            const passwordInput = document.querySelector('input[name="Password"]');
+            const toggleIcon = document.getElementById('toggleIcon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+
+        // Form validation
+        (function() {
+            'use strict';
+            var forms = document.querySelectorAll('.needs-validation');
+            Array.prototype.slice.call(forms).forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+</body>
+</html>

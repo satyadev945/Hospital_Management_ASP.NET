@@ -1,0 +1,181 @@
+@page
+@model HospitalManagement.Web.Pages.Patient.DoctorsModel
+@{
+    ViewData["Title"] = "Doctors by Department";
+}
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="mb-3">Doctors by Department</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-page="./Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Doctors</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>@Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i>@Model.SuccessMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <!-- Department Filter -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3 align-items-end">
+                <div class="col-md-8">
+                    <label for="departmentFilter" class="form-label">Filter by Department</label>
+                    <select id="departmentFilter" name="department" class="form-select" onchange="this.form.submit()">
+                        <option value="">All Departments</option>
+                        @if (Model.Departments != null)
+                        {
+                            foreach (var dept in Model.Departments)
+                            {
+                                <option value="@dept.DeptName" selected="@(dept.DeptName == Model.SelectedDepartment)">
+                                    @dept.DeptName (@dept.NumberOfDoctors doctors)
+                                </option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-filter me-2"></i>Filter
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Doctors List -->
+    @if (Model.Doctors != null && Model.Doctors.Any())
+    {
+        <div class="row g-4">
+            @foreach (var doctor in Model.Doctors)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm h-100 doctor-card">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-person-badge me-2"></i>@doctor.Name
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="text-muted small">Department</label>
+                                <p class="fw-bold mb-2">@doctor.DepartmentName</p>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="text-muted small">Specialization</label>
+                                <p class="mb-2">@(doctor.Specialization ?? "General")</p>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="text-muted small">Qualification</label>
+                                <p class="mb-2">@(doctor.Qualification ?? "N/A")</p>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="text-muted small">Experience</label>
+                                <p class="mb-2">@(doctor.WorkExperience?.ToString() ?? "N/A") years</p>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="text-muted small">Charges per Visit</label>
+                                <p class="fw-bold text-success mb-2">@doctor.ChargesPerVisit.ToString("C")</p>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="text-muted small">Patients Treated</label>
+                                <p class="mb-2">
+                                    <span class="badge bg-info">@doctor.PatientsTreated patients</span>
+                                </p>
+                            </div>
+
+                            @if (doctor.ReputeIndex.HasValue)
+                            {
+                                <div class="mb-3">
+                                    <label class="text-muted small">Reputation Index</label>
+                                    <p class="mb-2">
+                                        @for (int i = 0; i < 5; i++)
+                                        {
+                                            if (i < (int)doctor.ReputeIndex.Value)
+                                            {
+                                                <i class="bi bi-star-fill text-warning"></i>
+                                            }
+                                            else
+                                            {
+                                                <i class="bi bi-star text-warning"></i>
+                                            }
+                                        }
+                                    </p>
+                                </div>
+                            }
+                        </div>
+                        <div class="card-footer bg-light">
+                            <div class="d-grid gap-2">
+                                <a asp-page="./DoctorProfile" asp-route-id="@doctor.DoctorID" class="btn btn-outline-primary">
+                                    <i class="bi bi-eye me-2"></i>View Profile
+                                </a>
+                                <a asp-page="./BookAppointment" asp-route-doctorId="@doctor.DoctorID" class="btn btn-success">
+                                    <i class="bi bi-calendar-plus me-2"></i>Book Appointment
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm">
+            <div class="card-body text-center py-5">
+                <i class="bi bi-hospital fs-1 text-muted d-block mb-3"></i>
+                <h5 class="text-muted">No Doctors Found</h5>
+                <p class="text-muted">
+                    @if (!string.IsNullOrEmpty(Model.SelectedDepartment))
+                    {
+                        <span>No doctors available in the @Model.SelectedDepartment department.</span>
+                    }
+                    else
+                    {
+                        <span>No doctors are currently available.</span>
+                    }
+                </p>
+                @if (!string.IsNullOrEmpty(Model.SelectedDepartment))
+                {
+                    <a asp-page="./Doctors" class="btn btn-primary mt-3">View All Doctors</a>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@section Styles {
+    <style>
+        .doctor-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+    </style>
+}

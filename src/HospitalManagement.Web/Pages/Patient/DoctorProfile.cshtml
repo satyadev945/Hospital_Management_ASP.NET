@@ -1,0 +1,212 @@
+@page "{id:int}"
+@model HospitalManagement.Web.Pages.Patient.DoctorProfileModel
+@{
+    ViewData["Title"] = "Doctor Profile";
+}
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="mb-3">Doctor Profile</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-page="./Index">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a asp-page="./Doctors">Doctors</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>@Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model.Doctor != null)
+    {
+        <div class="row g-4">
+            <!-- Doctor Information -->
+            <div class="col-lg-4">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="bi bi-person-circle me-2"></i>Doctor Information</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-person-circle fs-1 text-primary"></i>
+                        </div>
+                        <h4 class="mb-2">@Model.Doctor.Name</h4>
+                        <p class="text-muted mb-3">@Model.Doctor.Specialization</p>
+
+                        @if (Model.Doctor.ReputeIndex.HasValue)
+                        {
+                            <div class="mb-3">
+                                @for (int i = 0; i < 5; i++)
+                                {
+                                    if (i < (int)Model.Doctor.ReputeIndex.Value)
+                                    {
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="bi bi-star text-warning"></i>
+                                    }
+                                }
+                                <span class="text-muted ms-2">(@Model.Doctor.ReputeIndex.Value.ToString("F1"))</span>
+                            </div>
+                        }
+
+                        <div class="d-grid gap-2 mt-4">
+                            <a asp-page="./BookAppointment" asp-route-doctorId="@Model.Doctor.DoctorID" class="btn btn-success">
+                                <i class="bi bi-calendar-plus me-2"></i>Book Appointment
+                            </a>
+                            <a asp-page="./Doctors" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left me-2"></i>Back to Doctors
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="card shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="bi bi-bar-chart me-2"></i>Statistics</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="text-muted small">Patients Treated</label>
+                            <p class="fw-bold fs-4 mb-0 text-primary">@Model.Doctor.PatientsTreated</p>
+                        </div>
+                        <hr>
+                        <div class="mb-3">
+                            <label class="text-muted small">Work Experience</label>
+                            <p class="fw-bold fs-4 mb-0 text-success">@(Model.Doctor.WorkExperience?.ToString() ?? "N/A") years</p>
+                        </div>
+                        <hr>
+                        <div class="mb-0">
+                            <label class="text-muted small">Charges per Visit</label>
+                            <p class="fw-bold fs-4 mb-0 text-danger">@Model.Doctor.ChargesPerVisit.ToString("C")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Information -->
+            <div class="col-lg-8">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-secondary text-white">
+                        <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>Professional Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Doctor ID</label>
+                                <p class="fw-bold">@Model.Doctor.DoctorID</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Department</label>
+                                <p class="fw-bold">@Model.Doctor.DepartmentName</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Qualification</label>
+                                <p class="fw-bold">@(Model.Doctor.Qualification ?? "N/A")</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Specialization</label>
+                                <p class="fw-bold">@(Model.Doctor.Specialization ?? "General")</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Work Experience</label>
+                                <p class="fw-bold">@(Model.Doctor.WorkExperience?.ToString() ?? "N/A") years</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Status</label>
+                                <p>
+                                    @if (Model.Doctor.Status == 1)
+                                    {
+                                        <span class="badge bg-success">Active</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Inactive</span>
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-secondary text-white">
+                        <h5 class="mb-0"><i class="bi bi-person-lines-fill me-2"></i>Personal Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Email</label>
+                                <p class="fw-bold">@Model.Doctor.Email</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Phone</label>
+                                <p class="fw-bold">@Model.Doctor.Phone</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Age</label>
+                                <p class="fw-bold">@Model.Doctor.Age years</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Gender</label>
+                                <p class="fw-bold">@Model.Doctor.Gender</p>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label class="text-muted small">Address</label>
+                                <p class="fw-bold">@Model.Doctor.Address</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="text-muted small">Date of Birth</label>
+                                <p class="fw-bold">@Model.Doctor.BirthDate.ToString("MMMM dd, yyyy")</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fee Structure -->
+                <div class="card shadow-sm">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0"><i class="bi bi-cash-stack me-2"></i>Fee Structure</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="alert alert-info mb-0">
+                                    <h6 class="alert-heading">Consultation Charges</h6>
+                                    <p class="mb-0">
+                                        The consultation fee for Dr. @Model.Doctor.Name is
+                                        <strong>@Model.Doctor.ChargesPerVisit.ToString("C")</strong> per visit.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm">
+            <div class="card-body text-center py-5">
+                <i class="bi bi-person-x fs-1 text-muted d-block mb-3"></i>
+                <h5 class="text-muted">Doctor Not Found</h5>
+                <p class="text-muted">The requested doctor profile could not be found.</p>
+                <a asp-page="./Doctors" class="btn btn-primary mt-3">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Doctors
+                </a>
+            </div>
+        </div>
+    }
+</div>

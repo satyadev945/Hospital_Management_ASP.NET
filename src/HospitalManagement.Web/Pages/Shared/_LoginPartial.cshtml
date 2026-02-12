@@ -1,0 +1,39 @@
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="dropdown">
+        <button class="btn btn-outline-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user-circle"></i> @User.Identity.Name
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li>
+                <a class="dropdown-item" href="/Profile">
+                    <i class="fas fa-user"></i> My Profile
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="/Settings">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+                <form method="post" action="/Logout" class="d-inline">
+                    <button type="submit" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
+}
+else
+{
+    <div class="btn-group" role="group">
+        <a href="/Login" class="btn btn-outline-light">
+            <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+        <a href="/Register" class="btn btn-light">
+            <i class="fas fa-user-plus"></i> Register
+        </a>
+    </div>
+}

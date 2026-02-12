@@ -1,0 +1,139 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = HospitalManagement.Web
+build_property.RootNamespace = HospitalManagement.Web
+build_property.ProjectDir = /modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWNjZXNzRGVuaWVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Admin/ManageDepartments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vTWFuYWdlRGVwYXJ0bWVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Admin/ManageDoctors.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vTWFuYWdlRG9jdG9ycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Admin/ManagePatients.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vTWFuYWdlUGF0aWVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Admin/ManageStaff.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vTWFuYWdlU3RhZmYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Doctor/GenerateBill.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRG9jdG9yL0dlbmVyYXRlQmlsbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Doctor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRG9jdG9yL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Doctor/PatientHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRG9jdG9yL1BhdGllbnRIaXN0b3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Doctor/PendingAppointments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRG9jdG9yL1BlbmRpbmdBcHBvaW50bWVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Doctor/TodaysAppointments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRG9jdG9yL1RvZGF5c0FwcG9pbnRtZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Doctor/UpdatePrescription.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRG9jdG9yL1VwZGF0ZVByZXNjcmlwdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9nb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Patient/BillHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGF0aWVudC9CaWxsSGlzdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Patient/BookAppointment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGF0aWVudC9Cb29rQXBwb2ludG1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Patient/CurrentAppointment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGF0aWVudC9DdXJyZW50QXBwb2ludG1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Patient/DoctorProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGF0aWVudC9Eb2N0b3JQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Patient/Doctors.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGF0aWVudC9Eb2N0b3JzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Patient/Feedback.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGF0aWVudC9GZWVkYmFjay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Patient/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGF0aWVudC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Patient/Notifications.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGF0aWVudC9Ob3RpZmljYXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Patient/TreatmentHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGF0aWVudC9UcmVhdG1lbnRIaXN0b3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1458/transformed-code/491/studio-workspace/rahul-HospitalManagement/src/HospitalManagement.Web/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

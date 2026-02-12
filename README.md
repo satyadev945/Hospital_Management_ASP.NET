@@ -1,6 +1,6 @@
-# ⚕️ Hospital Management System - Made using C#, ASP.net
+# ⚕️ Hospital Management System - .NET 8
 
-A fully featured Clinic Management System having a well designed Database Schema made as a final project for the course "Application Development with .NET and Web Services CS624" during my Semester at [Pace University](https://www.pace.edu/). Its based on the 3 Tier Architecture.
+A modern, fully-featured Hospital Management System built with .NET 8 and clean architecture principles. This application was successfully migrated from ASP.NET Web Forms 4.5.2 to .NET 8 with ASP.NET Core Razor Pages.
 
 ### Signup Page 
 <img src="images/main1.png"/>

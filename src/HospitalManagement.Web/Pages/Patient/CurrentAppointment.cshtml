@@ -1,0 +1,302 @@
+@page
+@model HospitalManagement.Web.Pages.Patient.CurrentAppointmentModel
+@{
+    ViewData["Title"] = "Current Appointment";
+}
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="mb-3">Current Appointment</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-page="./Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Current Appointment</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>@Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i>@Model.SuccessMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model.Appointment != null)
+    {
+        <div class="row g-4">
+            <!-- Appointment Details -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="bi bi-calendar-event me-2"></i>Appointment Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="text-muted small">Appointment ID</label>
+                            <p class="fw-bold">#@Model.Appointment.AppointID</p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="text-muted small">Doctor Name</label>
+                            <p class="fw-bold">
+                                @Model.Appointment.DoctorName
+                                <a asp-page="./DoctorProfile" asp-route-id="@Model.Appointment.DoctorID" class="btn btn-sm btn-outline-primary ms-2">
+                                    <i class="bi bi-eye me-1"></i>View Profile
+                                </a>
+                            </p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="text-muted small">Appointment Date</label>
+                            <p class="fw-bold">
+                                <i class="bi bi-calendar3 me-2"></i>@Model.Appointment.Date?.ToString("MMMM dd, yyyy")
+                            </p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="text-muted small">Status</label>
+                            <p>
+                                @if (Model.Appointment.AppointmentStatus == 0)
+                                {
+                                    <span class="badge bg-warning text-dark fs-6">
+                                        <i class="bi bi-clock-history me-1"></i>Pending Approval
+                                    </span>
+                                }
+                                else if (Model.Appointment.AppointmentStatus == 1)
+                                {
+                                    <span class="badge bg-success fs-6">
+                                        <i class="bi bi-check-circle me-1"></i>Approved
+                                    </span>
+                                }
+                                else if (Model.Appointment.AppointmentStatus == 2)
+                                {
+                                    <span class="badge bg-danger fs-6">
+                                        <i class="bi bi-x-circle me-1"></i>Rejected
+                                    </span>
+                                }
+                                else if (Model.Appointment.AppointmentStatus == 3)
+                                {
+                                    <span class="badge bg-info fs-6">
+                                        <i class="bi bi-check-all me-1"></i>Completed
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary fs-6">@Model.Appointment.AppointmentStatusText</span>
+                                }
+                            </p>
+                        </div>
+
+                        @if (Model.Appointment.AppointmentStatus == 0)
+                        {
+                            <div class="alert alert-info">
+                                <i class="bi bi-info-circle me-2"></i>
+                                <strong>Waiting for Doctor Approval</strong><br />
+                                Your appointment is pending approval from the doctor. You will be notified once the doctor reviews your request.
+                            </div>
+                        }
+                        else if (Model.Appointment.AppointmentStatus == 1)
+                        {
+                            <div class="alert alert-success">
+                                <i class="bi bi-check-circle me-2"></i>
+                                <strong>Appointment Confirmed!</strong><br />
+                                Your appointment has been approved by the doctor. Please arrive on time.
+                            </div>
+                        }
+                        else if (Model.Appointment.AppointmentStatus == 2)
+                        {
+                            <div class="alert alert-danger">
+                                <i class="bi bi-x-circle me-2"></i>
+                                <strong>Appointment Rejected</strong><br />
+                                Unfortunately, your appointment was not approved. Please book another appointment.
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Bill Information -->
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="bi bi-receipt me-2"></i>Bill Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="text-muted small">Bill Amount</label>
+                            <p class="fw-bold fs-4 text-success mb-0">
+                                @(Model.Appointment.BillAmount?.ToString("C") ?? "N/A")
+                            </p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="text-muted small">Bill Status</label>
+                            <p>
+                                @if (Model.Appointment.BillStatus == "Paid")
+                                {
+                                    <span class="badge bg-success">Paid</span>
+                                }
+                                else if (Model.Appointment.BillStatus == "Unpaid")
+                                {
+                                    <span class="badge bg-danger">Unpaid</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">@(Model.Appointment.BillStatus ?? "N/A")</span>
+                                }
+                            </p>
+                        </div>
+
+                        @if (Model.Appointment.BillStatus == "Unpaid" && Model.Appointment.BillAmount.HasValue)
+                        {
+                            <div class="alert alert-warning mb-0">
+                                <i class="bi bi-exclamation-triangle me-2"></i>
+                                Please pay the bill amount at the hospital reception.
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Treatment Details -->
+            <div class="col-lg-6">
+                @if (Model.Appointment.AppointmentStatus == 3 && !string.IsNullOrEmpty(Model.Appointment.Disease))
+                {
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="mb-0"><i class="bi bi-clipboard2-pulse me-2"></i>Treatment Details</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="text-muted small">Diagnosed Disease</label>
+                                <p class="fw-bold">@Model.Appointment.Disease</p>
+                            </div>
+
+                            @if (!string.IsNullOrEmpty(Model.Appointment.Progress))
+                            {
+                                <div class="mb-3">
+                                    <label class="text-muted small">Progress</label>
+                                    <p>@Model.Appointment.Progress</p>
+                                </div>
+                            }
+
+                            @if (!string.IsNullOrEmpty(Model.Appointment.Prescription))
+                            {
+                                <div class="mb-3">
+                                    <label class="text-muted small">Prescription</label>
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <p class="mb-0 font-monospace">@Model.Appointment.Prescription</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Feedback Section -->
+                    @if (Model.Appointment.FeedbackStatus == 0)
+                    {
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-warning text-dark">
+                                <h5 class="mb-0"><i class="bi bi-chat-square-text me-2"></i>Feedback Required</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Your treatment has been completed. Please provide feedback about your experience.</p>
+                                <a asp-page="./Feedback" class="btn btn-warning">
+                                    <i class="bi bi-chat-square-text me-2"></i>Give Feedback
+                                </a>
+                            </div>
+                        </div>
+                    }
+                    else if (Model.Appointment.FeedbackStatus == 1)
+                    {
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0"><i class="bi bi-check-circle me-2"></i>Feedback Submitted</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-0">Thank you for your feedback! Your response has been recorded.</p>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-secondary text-white">
+                            <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>Treatment Information</h5>
+                        </div>
+                        <div class="card-body">
+                            @if (Model.Appointment.AppointmentStatus == 0)
+                            {
+                                <p class="text-muted mb-0">Treatment details will be available after the doctor approves and completes your appointment.</p>
+                            }
+                            else if (Model.Appointment.AppointmentStatus == 1)
+                            {
+                                <p class="text-muted mb-0">Treatment details will be available after your appointment is completed.</p>
+                            }
+                            else if (Model.Appointment.AppointmentStatus == 2)
+                            {
+                                <p class="text-muted mb-0">No treatment was provided as the appointment was rejected.</p>
+                            }
+                            else
+                            {
+                                <p class="text-muted mb-0">No treatment details available.</p>
+                            }
+                        </div>
+                    </div>
+                }
+
+                <!-- Quick Actions -->
+                <div class="card shadow-sm mt-4">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0"><i class="bi bi-lightning-charge me-2"></i>Quick Actions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            @if (Model.Appointment.AppointmentStatus == 3)
+                            {
+                                <a asp-page="./TreatmentHistory" class="btn btn-outline-primary">
+                                    <i class="bi bi-clipboard2-pulse me-2"></i>View Treatment History
+                                </a>
+                                <a asp-page="./BillHistory" class="btn btn-outline-success">
+                                    <i class="bi bi-receipt me-2"></i>View Bill History
+                                </a>
+                            }
+                            <a asp-page="./Doctors" class="btn btn-outline-info">
+                                <i class="bi bi-hospital me-2"></i>View All Doctors
+                            </a>
+                            <a asp-page="./Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-house me-2"></i>Back to Dashboard
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm">
+            <div class="card-body text-center py-5">
+                <i class="bi bi-calendar-x fs-1 text-muted d-block mb-3"></i>
+                <h5 class="text-muted">No Active Appointment</h5>
+                <p class="text-muted">You don't have any active appointments at the moment.</p>
+                <a asp-page="./BookAppointment" class="btn btn-primary mt-3">
+                    <i class="bi bi-calendar-plus me-2"></i>Book an Appointment
+                </a>
+            </div>
+        </div>
+    }
+</div>

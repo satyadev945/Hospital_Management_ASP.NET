@@ -1,0 +1,234 @@
+@page
+@model HospitalManagement.Web.Pages.Patient.TreatmentHistoryModel
+@{
+    ViewData["Title"] = "Treatment History";
+}
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="mb-3">Treatment History</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-page="./Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Treatment History</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>@Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model.TreatmentHistory != null && Model.TreatmentHistory.Any())
+    {
+        <!-- Summary Card -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body text-center">
+                <div class="row">
+                    <div class="col-md-6">
+                        <i class="bi bi-clipboard2-pulse fs-1 text-primary mb-3 d-block"></i>
+                        <h6 class="text-muted">Total Treatments</h6>
+                        <h3 class="mb-0">@Model.TreatmentHistory.Count()</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <i class="bi bi-hospital fs-1 text-success mb-3 d-block"></i>
+                        <h6 class="text-muted">Doctors Consulted</h6>
+                        <h3 class="mb-0">@Model.TreatmentHistory.Select(t => t.DoctorName).Distinct().Count()</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Treatment History Cards -->
+        <div class="row g-4">
+            @{
+                int treatmentNumber = 1;
+            }
+            @foreach (var treatment in Model.TreatmentHistory)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm h-100 treatment-card">
+                        <div class="card-header bg-primary text-white">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">
+                                    <i class="bi bi-clipboard2-pulse me-2"></i>Treatment #@treatmentNumber
+                                </h5>
+                                <span class="badge bg-light text-dark">@treatment.Date</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="text-muted small">Doctor</label>
+                                <p class="fw-bold mb-0">
+                                    <i class="bi bi-person-badge me-2 text-primary"></i>@treatment.DoctorName
+                                </p>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="text-muted small">Diagnosed Disease</label>
+                                <p class="fw-bold mb-0">
+                                    <i class="bi bi-virus me-2 text-danger"></i>@treatment.DiagnosedDisease
+                                </p>
+                            </div>
+
+                            @if (!string.IsNullOrEmpty(treatment.ProgressMade))
+                            {
+                                <div class="mb-3">
+                                    <label class="text-muted small">Progress Made</label>
+                                    <p class="mb-0">@treatment.ProgressMade</p>
+                                </div>
+                            }
+
+                            @if (!string.IsNullOrEmpty(treatment.Prescription))
+                            {
+                                <div class="mb-3">
+                                    <label class="text-muted small">Prescription</label>
+                                    <div class="card bg-light">
+                                        <div class="card-body py-2">
+                                            <p class="mb-0 small font-monospace">
+                                                @treatment.Prescription
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="card-footer bg-light text-muted small">
+                            <i class="bi bi-calendar3 me-2"></i>Date: @treatment.Date
+                        </div>
+                    </div>
+                </div>
+                treatmentNumber++;
+            }
+        </div>
+
+        <!-- Treatment Timeline -->
+        <div class="card shadow-sm mt-4">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="bi bi-clock-history me-2"></i>Treatment Timeline</h5>
+            </div>
+            <div class="card-body">
+                <div class="timeline">
+                    @foreach (var treatment in Model.TreatmentHistory.OrderByDescending(t => t.Date))
+                    {
+                        <div class="timeline-item mb-4">
+                            <div class="row">
+                                <div class="col-md-2 text-end">
+                                    <span class="badge bg-primary">@treatment.Date</span>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h6 class="card-title text-primary">@treatment.DoctorName</h6>
+                                            <p class="mb-1"><strong>Disease:</strong> @treatment.DiagnosedDisease</p>
+                                            @if (!string.IsNullOrEmpty(treatment.ProgressMade))
+                                            {
+                                                <p class="mb-1"><strong>Progress:</strong> @treatment.ProgressMade</p>
+                                            }
+                                            @if (!string.IsNullOrEmpty(treatment.Prescription))
+                                            {
+                                                <p class="mb-0"><strong>Prescription:</strong> @treatment.Prescription</p>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm">
+            <div class="card-body text-center py-5">
+                <i class="bi bi-clipboard2-pulse fs-1 text-muted d-block mb-3"></i>
+                <h5 class="text-muted">No Treatment History</h5>
+                <p class="text-muted">You don't have any treatment records yet. Your treatment history will appear here after completing appointments.</p>
+                <a asp-page="./BookAppointment" class="btn btn-primary mt-3">
+                    <i class="bi bi-calendar-plus me-2"></i>Book an Appointment
+                </a>
+            </div>
+        </div>
+    }
+
+    <!-- Quick Navigation -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0"><i class="bi bi-lightning-charge me-2"></i>Quick Navigation</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-wrap gap-2">
+                        <a asp-page="./CurrentAppointment" class="btn btn-outline-primary">
+                            <i class="bi bi-calendar-check me-2"></i>Current Appointment
+                        </a>
+                        <a asp-page="./BillHistory" class="btn btn-outline-success">
+                            <i class="bi bi-receipt me-2"></i>Bill History
+                        </a>
+                        <a asp-page="./Doctors" class="btn btn-outline-info">
+                            <i class="bi bi-hospital me-2"></i>View Doctors
+                        </a>
+                        <a asp-page="./Index" class="btn btn-outline-secondary">
+                            <i class="bi bi-house me-2"></i>Dashboard
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .treatment-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .treatment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        @@media (min-width: 768px) {
+            .timeline::before {
+                content: '';
+                position: absolute;
+                left: calc(16.666% - 1px);
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: linear-gradient(to bottom, #007bff, #6c757d);
+            }
+
+            .timeline-item::before {
+                content: '';
+                position: absolute;
+                left: calc(16.666% - 6px);
+                top: 10px;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #007bff;
+                border: 2px solid white;
+                box-shadow: 0 0 0 2px #007bff;
+            }
+        }
+    </style>
+}
