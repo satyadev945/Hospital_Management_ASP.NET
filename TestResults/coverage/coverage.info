@@ -1,0 +1,2129 @@
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Domain/Entities/Appointment.cs
+FN:7,System.Int32 HospitalManagement.Domain.Entities.Appointment::get_AppointmentID()
+FNDA:0,System.Int32 HospitalManagement.Domain.Entities.Appointment::get_AppointmentID()
+DA:8,0
+FN:8,System.Int32 HospitalManagement.Domain.Entities.Appointment::get_PatientID()
+FNDA:0,System.Int32 HospitalManagement.Domain.Entities.Appointment::get_PatientID()
+DA:9,0
+FN:9,System.Int32 HospitalManagement.Domain.Entities.Appointment::get_DoctorID()
+FNDA:0,System.Int32 HospitalManagement.Domain.Entities.Appointment::get_DoctorID()
+DA:10,0
+FN:10,System.DateTime HospitalManagement.Domain.Entities.Appointment::get_AppointmentDate()
+FNDA:0,System.DateTime HospitalManagement.Domain.Entities.Appointment::get_AppointmentDate()
+DA:11,0
+FN:11,System.String HospitalManagement.Domain.Entities.Appointment::get_TimeSlot()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Appointment::get_TimeSlot()
+DA:12,0
+FN:12,System.String HospitalManagement.Domain.Entities.Appointment::get_Status()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Appointment::get_Status()
+DA:13,0
+FN:13,System.String HospitalManagement.Domain.Entities.Appointment::get_Disease()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Appointment::get_Disease()
+DA:14,0
+FN:14,System.String HospitalManagement.Domain.Entities.Appointment::get_Progress()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Appointment::get_Progress()
+DA:15,0
+FN:15,System.String HospitalManagement.Domain.Entities.Appointment::get_Prescription()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Appointment::get_Prescription()
+DA:16,0
+FN:16,System.Boolean HospitalManagement.Domain.Entities.Appointment::get_FeedbackGiven()
+FNDA:0,System.Boolean HospitalManagement.Domain.Entities.Appointment::get_FeedbackGiven()
+DA:17,0
+FN:17,System.DateTime HospitalManagement.Domain.Entities.Appointment::get_CreatedDate()
+FNDA:0,System.DateTime HospitalManagement.Domain.Entities.Appointment::get_CreatedDate()
+DA:18,0
+FN:18,System.Nullable`1<System.DateTime> HospitalManagement.Domain.Entities.Appointment::get_ModifiedDate()
+FNDA:0,System.Nullable`1<System.DateTime> HospitalManagement.Domain.Entities.Appointment::get_ModifiedDate()
+DA:19,0
+FN:19,System.String HospitalManagement.Domain.Entities.Appointment::get_CreatedBy()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Appointment::get_CreatedBy()
+DA:20,0
+FN:20,System.String HospitalManagement.Domain.Entities.Appointment::get_ModifiedBy()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Appointment::get_ModifiedBy()
+DA:21,0
+FN:22,HospitalManagement.Domain.Entities.Patient HospitalManagement.Domain.Entities.Appointment::get_Patient()
+FNDA:0,HospitalManagement.Domain.Entities.Patient HospitalManagement.Domain.Entities.Appointment::get_Patient()
+DA:23,0
+FN:23,HospitalManagement.Domain.Entities.Doctor HospitalManagement.Domain.Entities.Appointment::get_Doctor()
+FNDA:0,HospitalManagement.Domain.Entities.Doctor HospitalManagement.Domain.Entities.Appointment::get_Doctor()
+DA:24,0
+FN:24,HospitalManagement.Domain.Entities.Bill HospitalManagement.Domain.Entities.Appointment::get_Bill()
+FNDA:0,HospitalManagement.Domain.Entities.Bill HospitalManagement.Domain.Entities.Appointment::get_Bill()
+DA:25,0
+LF:17
+LH:0
+BRF:0
+BRH:0
+FNF:17
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Domain/Entities/Bill.cs
+FN:7,System.Int32 HospitalManagement.Domain.Entities.Bill::get_BillID()
+FNDA:0,System.Int32 HospitalManagement.Domain.Entities.Bill::get_BillID()
+DA:8,0
+FN:8,System.Int32 HospitalManagement.Domain.Entities.Bill::get_PatientID()
+FNDA:0,System.Int32 HospitalManagement.Domain.Entities.Bill::get_PatientID()
+DA:9,0
+FN:9,System.Int32 HospitalManagement.Domain.Entities.Bill::get_AppointmentID()
+FNDA:0,System.Int32 HospitalManagement.Domain.Entities.Bill::get_AppointmentID()
+DA:10,0
+FN:10,System.Decimal HospitalManagement.Domain.Entities.Bill::get_Amount()
+FNDA:0,System.Decimal HospitalManagement.Domain.Entities.Bill::get_Amount()
+DA:11,0
+FN:11,System.Boolean HospitalManagement.Domain.Entities.Bill::get_IsPaid()
+FNDA:0,System.Boolean HospitalManagement.Domain.Entities.Bill::get_IsPaid()
+DA:12,0
+FN:12,System.DateTime HospitalManagement.Domain.Entities.Bill::get_BillDate()
+FNDA:0,System.DateTime HospitalManagement.Domain.Entities.Bill::get_BillDate()
+DA:13,0
+FN:13,System.Nullable`1<System.DateTime> HospitalManagement.Domain.Entities.Bill::get_PaymentDate()
+FNDA:0,System.Nullable`1<System.DateTime> HospitalManagement.Domain.Entities.Bill::get_PaymentDate()
+DA:14,0
+FN:14,System.DateTime HospitalManagement.Domain.Entities.Bill::get_CreatedDate()
+FNDA:0,System.DateTime HospitalManagement.Domain.Entities.Bill::get_CreatedDate()
+DA:15,0
+FN:15,System.Nullable`1<System.DateTime> HospitalManagement.Domain.Entities.Bill::get_ModifiedDate()
+FNDA:0,System.Nullable`1<System.DateTime> HospitalManagement.Domain.Entities.Bill::get_ModifiedDate()
+DA:16,0
+FN:16,System.String HospitalManagement.Domain.Entities.Bill::get_CreatedBy()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Bill::get_CreatedBy()
+DA:17,0
+FN:17,System.String HospitalManagement.Domain.Entities.Bill::get_ModifiedBy()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Bill::get_ModifiedBy()
+DA:18,0
+FN:19,HospitalManagement.Domain.Entities.Patient HospitalManagement.Domain.Entities.Bill::get_Patient()
+FNDA:0,HospitalManagement.Domain.Entities.Patient HospitalManagement.Domain.Entities.Bill::get_Patient()
+DA:20,0
+FN:20,HospitalManagement.Domain.Entities.Appointment HospitalManagement.Domain.Entities.Bill::get_Appointment()
+FNDA:0,HospitalManagement.Domain.Entities.Appointment HospitalManagement.Domain.Entities.Bill::get_Appointment()
+DA:21,0
+LF:13
+LH:0
+BRF:0
+BRH:0
+FNF:13
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Domain/Entities/Department.cs
+FN:7,System.Int32 HospitalManagement.Domain.Entities.Department::get_DeptNo()
+FNDA:0,System.Int32 HospitalManagement.Domain.Entities.Department::get_DeptNo()
+DA:8,0
+FN:8,System.String HospitalManagement.Domain.Entities.Department::get_DeptName()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Department::get_DeptName()
+DA:9,0
+FN:9,System.String HospitalManagement.Domain.Entities.Department::get_Description()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Department::get_Description()
+DA:10,0
+FN:10,System.Boolean HospitalManagement.Domain.Entities.Department::get_IsActive()
+FNDA:0,System.Boolean HospitalManagement.Domain.Entities.Department::get_IsActive()
+DA:11,0
+FN:11,System.DateTime HospitalManagement.Domain.Entities.Department::get_CreatedDate()
+FNDA:0,System.DateTime HospitalManagement.Domain.Entities.Department::get_CreatedDate()
+DA:12,0
+FN:12,System.Nullable`1<System.DateTime> HospitalManagement.Domain.Entities.Department::get_ModifiedDate()
+FNDA:0,System.Nullable`1<System.DateTime> HospitalManagement.Domain.Entities.Department::get_ModifiedDate()
+DA:13,0
+FN:13,System.String HospitalManagement.Domain.Entities.Department::get_CreatedBy()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Department::get_CreatedBy()
+DA:14,0
+FN:14,System.String HospitalManagement.Domain.Entities.Department::get_ModifiedBy()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Department::get_ModifiedBy()
+DA:15,0
+FN:16,System.Collections.Generic.ICollection`1<HospitalManagement.Domain.Entities.Doctor> HospitalManagement.Domain.Entities.Department::get_Doctors()
+FNDA:0,System.Collections.Generic.ICollection`1<HospitalManagement.Domain.Entities.Doctor> HospitalManagement.Domain.Entities.Department::get_Doctors()
+DA:17,0
+LF:9
+LH:0
+BRF:0
+BRH:0
+FNF:9
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Domain/Entities/Doctor.cs
+FN:7,System.Int32 HospitalManagement.Domain.Entities.Doctor::get_DoctorID()
+FNDA:0,System.Int32 HospitalManagement.Domain.Entities.Doctor::get_DoctorID()
+DA:8,0
+FN:8,System.String HospitalManagement.Domain.Entities.Doctor::get_Name()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Doctor::get_Name()
+DA:9,0
+FN:9,System.String HospitalManagement.Domain.Entities.Doctor::get_Email()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Doctor::get_Email()
+DA:10,0
+FN:10,System.String HospitalManagement.Domain.Entities.Doctor::get_Password()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Doctor::get_Password()
+DA:11,0
+FN:11,System.DateTime HospitalManagement.Domain.Entities.Doctor::get_BirthDate()
+FNDA:0,System.DateTime HospitalManagement.Domain.Entities.Doctor::get_BirthDate()
+DA:12,0
+FN:12,System.Int32 HospitalManagement.Domain.Entities.Doctor::get_DeptNo()
+FNDA:0,System.Int32 HospitalManagement.Domain.Entities.Doctor::get_DeptNo()
+DA:13,0
+FN:13,System.String HospitalManagement.Domain.Entities.Doctor::get_Phone()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Doctor::get_Phone()
+DA:14,0
+FN:14,System.String HospitalManagement.Domain.Entities.Doctor::get_Gender()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Doctor::get_Gender()
+DA:15,0
+FN:15,System.String HospitalManagement.Domain.Entities.Doctor::get_Address()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Doctor::get_Address()
+DA:16,0
+FN:16,System.Int32 HospitalManagement.Domain.Entities.Doctor::get_Experience()
+FNDA:0,System.Int32 HospitalManagement.Domain.Entities.Doctor::get_Experience()
+DA:17,0
+FN:17,System.Decimal HospitalManagement.Domain.Entities.Doctor::get_Salary()
+FNDA:0,System.Decimal HospitalManagement.Domain.Entities.Doctor::get_Salary()
+DA:18,0
+FN:18,System.Decimal HospitalManagement.Domain.Entities.Doctor::get_ChargesPerVisit()
+FNDA:0,System.Decimal HospitalManagement.Domain.Entities.Doctor::get_ChargesPerVisit()
+DA:19,0
+FN:19,System.String HospitalManagement.Domain.Entities.Doctor::get_Specialization()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Doctor::get_Specialization()
+DA:20,0
+FN:20,System.String HospitalManagement.Domain.Entities.Doctor::get_Qualification()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Doctor::get_Qualification()
+DA:21,0
+FN:21,System.Boolean HospitalManagement.Domain.Entities.Doctor::get_Status()
+FNDA:0,System.Boolean HospitalManagement.Domain.Entities.Doctor::get_Status()
+DA:22,0
+FN:22,System.Decimal HospitalManagement.Domain.Entities.Doctor::get_ReputationIndex()
+FNDA:0,System.Decimal HospitalManagement.Domain.Entities.Doctor::get_ReputationIndex()
+DA:23,0
+FN:23,System.Int32 HospitalManagement.Domain.Entities.Doctor::get_PatientsTreated()
+FNDA:0,System.Int32 HospitalManagement.Domain.Entities.Doctor::get_PatientsTreated()
+DA:24,0
+FN:24,System.DateTime HospitalManagement.Domain.Entities.Doctor::get_CreatedDate()
+FNDA:0,System.DateTime HospitalManagement.Domain.Entities.Doctor::get_CreatedDate()
+DA:25,0
+FN:25,System.Nullable`1<System.DateTime> HospitalManagement.Domain.Entities.Doctor::get_ModifiedDate()
+FNDA:0,System.Nullable`1<System.DateTime> HospitalManagement.Domain.Entities.Doctor::get_ModifiedDate()
+DA:26,0
+FN:26,System.String HospitalManagement.Domain.Entities.Doctor::get_CreatedBy()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Doctor::get_CreatedBy()
+DA:27,0
+FN:27,System.String HospitalManagement.Domain.Entities.Doctor::get_ModifiedBy()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Doctor::get_ModifiedBy()
+DA:28,0
+FN:29,HospitalManagement.Domain.Entities.Department HospitalManagement.Domain.Entities.Doctor::get_Department()
+FNDA:0,HospitalManagement.Domain.Entities.Department HospitalManagement.Domain.Entities.Doctor::get_Department()
+DA:30,0
+FN:30,System.Collections.Generic.ICollection`1<HospitalManagement.Domain.Entities.Appointment> HospitalManagement.Domain.Entities.Doctor::get_Appointments()
+FNDA:0,System.Collections.Generic.ICollection`1<HospitalManagement.Domain.Entities.Appointment> HospitalManagement.Domain.Entities.Doctor::get_Appointments()
+DA:31,0
+LF:23
+LH:0
+BRF:0
+BRH:0
+FNF:23
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Domain/Entities/OtherStaff.cs
+FN:7,System.Int32 HospitalManagement.Domain.Entities.OtherStaff::get_StaffID()
+FNDA:0,System.Int32 HospitalManagement.Domain.Entities.OtherStaff::get_StaffID()
+DA:8,0
+FN:8,System.String HospitalManagement.Domain.Entities.OtherStaff::get_Name()
+FNDA:0,System.String HospitalManagement.Domain.Entities.OtherStaff::get_Name()
+DA:9,0
+FN:9,System.DateTime HospitalManagement.Domain.Entities.OtherStaff::get_BirthDate()
+FNDA:0,System.DateTime HospitalManagement.Domain.Entities.OtherStaff::get_BirthDate()
+DA:10,0
+FN:10,System.String HospitalManagement.Domain.Entities.OtherStaff::get_Phone()
+FNDA:0,System.String HospitalManagement.Domain.Entities.OtherStaff::get_Phone()
+DA:11,0
+FN:11,System.String HospitalManagement.Domain.Entities.OtherStaff::get_Gender()
+FNDA:0,System.String HospitalManagement.Domain.Entities.OtherStaff::get_Gender()
+DA:12,0
+FN:12,System.String HospitalManagement.Domain.Entities.OtherStaff::get_Designation()
+FNDA:0,System.String HospitalManagement.Domain.Entities.OtherStaff::get_Designation()
+DA:13,0
+FN:13,System.String HospitalManagement.Domain.Entities.OtherStaff::get_Address()
+FNDA:0,System.String HospitalManagement.Domain.Entities.OtherStaff::get_Address()
+DA:14,0
+FN:14,System.Decimal HospitalManagement.Domain.Entities.OtherStaff::get_Salary()
+FNDA:0,System.Decimal HospitalManagement.Domain.Entities.OtherStaff::get_Salary()
+DA:15,0
+FN:15,System.String HospitalManagement.Domain.Entities.OtherStaff::get_Qualification()
+FNDA:0,System.String HospitalManagement.Domain.Entities.OtherStaff::get_Qualification()
+DA:16,0
+FN:16,System.Boolean HospitalManagement.Domain.Entities.OtherStaff::get_Status()
+FNDA:0,System.Boolean HospitalManagement.Domain.Entities.OtherStaff::get_Status()
+DA:17,0
+FN:17,System.DateTime HospitalManagement.Domain.Entities.OtherStaff::get_CreatedDate()
+FNDA:0,System.DateTime HospitalManagement.Domain.Entities.OtherStaff::get_CreatedDate()
+DA:18,0
+FN:18,System.Nullable`1<System.DateTime> HospitalManagement.Domain.Entities.OtherStaff::get_ModifiedDate()
+FNDA:0,System.Nullable`1<System.DateTime> HospitalManagement.Domain.Entities.OtherStaff::get_ModifiedDate()
+DA:19,0
+FN:19,System.String HospitalManagement.Domain.Entities.OtherStaff::get_CreatedBy()
+FNDA:0,System.String HospitalManagement.Domain.Entities.OtherStaff::get_CreatedBy()
+DA:20,0
+FN:20,System.String HospitalManagement.Domain.Entities.OtherStaff::get_ModifiedBy()
+FNDA:0,System.String HospitalManagement.Domain.Entities.OtherStaff::get_ModifiedBy()
+DA:21,0
+LF:14
+LH:0
+BRF:0
+BRH:0
+FNF:14
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Domain/Entities/Patient.cs
+FN:7,System.Int32 HospitalManagement.Domain.Entities.Patient::get_PatientID()
+FNDA:0,System.Int32 HospitalManagement.Domain.Entities.Patient::get_PatientID()
+DA:8,0
+FN:8,System.String HospitalManagement.Domain.Entities.Patient::get_Name()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Patient::get_Name()
+DA:9,0
+FN:9,System.String HospitalManagement.Domain.Entities.Patient::get_Phone()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Patient::get_Phone()
+DA:10,0
+FN:10,System.String HospitalManagement.Domain.Entities.Patient::get_Address()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Patient::get_Address()
+DA:11,0
+FN:11,System.DateTime HospitalManagement.Domain.Entities.Patient::get_BirthDate()
+FNDA:0,System.DateTime HospitalManagement.Domain.Entities.Patient::get_BirthDate()
+DA:12,0
+FN:12,System.String HospitalManagement.Domain.Entities.Patient::get_Gender()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Patient::get_Gender()
+DA:13,0
+FN:13,System.String HospitalManagement.Domain.Entities.Patient::get_Email()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Patient::get_Email()
+DA:14,0
+FN:14,System.String HospitalManagement.Domain.Entities.Patient::get_Password()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Patient::get_Password()
+DA:15,0
+FN:15,System.Boolean HospitalManagement.Domain.Entities.Patient::get_Status()
+FNDA:0,System.Boolean HospitalManagement.Domain.Entities.Patient::get_Status()
+DA:16,0
+FN:16,System.DateTime HospitalManagement.Domain.Entities.Patient::get_CreatedDate()
+FNDA:0,System.DateTime HospitalManagement.Domain.Entities.Patient::get_CreatedDate()
+DA:17,0
+FN:17,System.Nullable`1<System.DateTime> HospitalManagement.Domain.Entities.Patient::get_ModifiedDate()
+FNDA:0,System.Nullable`1<System.DateTime> HospitalManagement.Domain.Entities.Patient::get_ModifiedDate()
+DA:18,0
+FN:18,System.String HospitalManagement.Domain.Entities.Patient::get_CreatedBy()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Patient::get_CreatedBy()
+DA:19,0
+FN:19,System.String HospitalManagement.Domain.Entities.Patient::get_ModifiedBy()
+FNDA:0,System.String HospitalManagement.Domain.Entities.Patient::get_ModifiedBy()
+DA:20,0
+FN:21,System.Collections.Generic.ICollection`1<HospitalManagement.Domain.Entities.Appointment> HospitalManagement.Domain.Entities.Patient::get_Appointments()
+FNDA:0,System.Collections.Generic.ICollection`1<HospitalManagement.Domain.Entities.Appointment> HospitalManagement.Domain.Entities.Patient::get_Appointments()
+DA:22,0
+FN:22,System.Collections.Generic.ICollection`1<HospitalManagement.Domain.Entities.Bill> HospitalManagement.Domain.Entities.Patient::get_Bills()
+FNDA:0,System.Collections.Generic.ICollection`1<HospitalManagement.Domain.Entities.Bill> HospitalManagement.Domain.Entities.Patient::get_Bills()
+DA:23,0
+LF:15
+LH:0
+BRF:0
+BRH:0
+FNF:15
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Infrastructure/Repositories/AppointmentRepository.cs
+FN:11,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository::.ctor(HospitalManagement.Infrastructure.Data.HospitalDbContext)
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository::.ctor(HospitalManagement.Infrastructure.Data.HospitalDbContext)
+DA:12,0
+DA:13,0
+DA:14,0
+DA:15,0
+FN:33,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<AddAsync>d__4::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<AddAsync>d__4::MoveNext()
+DA:34,0
+DA:35,0
+DA:36,0
+DA:37,0
+DA:38,0
+FN:46,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<DeleteAsync>d__6::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<DeleteAsync>d__6::MoveNext()
+DA:47,0
+DA:48,0
+DA:49,0
+DA:50,0
+DA:51,0
+DA:52,0
+DA:53,0
+DA:54,0
+BRDA:49,174,0,0
+BRDA:49,174,1,0
+FN:56,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<ExistsAsync>d__7::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<ExistsAsync>d__7::MoveNext()
+DA:57,0
+DA:58,0
+DA:59,0
+FN:17,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<GetAllAsync>d__2::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<GetAllAsync>d__2::MoveNext()
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
+DA:22,0
+DA:23,0
+FN:69,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<GetByDoctorIdAsync>d__9::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<GetByDoctorIdAsync>d__9::MoveNext()
+DA:70,0
+DA:71,0
+DA:72,0
+DA:73,0
+DA:74,0
+DA:75,0
+FN:25,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<GetByIdAsync>d__3::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<GetByIdAsync>d__3::MoveNext()
+DA:26,0
+DA:27,0
+DA:28,0
+DA:29,0
+DA:30,0
+DA:31,0
+FN:61,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<GetByPatientIdAsync>d__8::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<GetByPatientIdAsync>d__8::MoveNext()
+DA:62,0
+DA:63,0
+DA:64,0
+DA:65,0
+DA:66,0
+DA:67,0
+FN:77,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<GetPendingByDoctorIdAsync>d__10::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<GetPendingByDoctorIdAsync>d__10::MoveNext()
+DA:78,0
+DA:79,0
+DA:80,0
+DA:81,0
+DA:82,0
+DA:83,0
+FN:85,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<GetTodaysByDoctorIdAsync>d__11::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<GetTodaysByDoctorIdAsync>d__11::MoveNext()
+DA:86,0
+DA:87,0
+DA:88,0
+DA:89,0
+DA:90,0
+DA:91,0
+DA:92,0
+FN:40,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<UpdateAsync>d__5::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.AppointmentRepository/<UpdateAsync>d__5::MoveNext()
+DA:41,0
+DA:42,0
+DA:43,0
+DA:44,0
+LF:61
+LH:0
+BRF:2
+BRH:0
+FNF:11
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Infrastructure/Repositories/BillRepository.cs
+FN:11,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository::.ctor(HospitalManagement.Infrastructure.Data.HospitalDbContext)
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository::.ctor(HospitalManagement.Infrastructure.Data.HospitalDbContext)
+DA:12,0
+DA:13,0
+DA:14,0
+DA:15,0
+FN:27,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<AddAsync>d__4::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<AddAsync>d__4::MoveNext()
+DA:28,0
+DA:29,0
+DA:30,0
+DA:31,0
+DA:32,0
+FN:40,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<DeleteAsync>d__6::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<DeleteAsync>d__6::MoveNext()
+DA:41,0
+DA:42,0
+DA:43,0
+DA:44,0
+DA:45,0
+DA:46,0
+DA:47,0
+DA:48,0
+BRDA:43,174,0,0
+BRDA:43,174,1,0
+FN:50,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<ExistsAsync>d__7::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<ExistsAsync>d__7::MoveNext()
+DA:51,0
+DA:52,0
+DA:53,0
+FN:17,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<GetAllAsync>d__2::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<GetAllAsync>d__2::MoveNext()
+DA:18,0
+DA:19,0
+DA:20,0
+FN:60,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<GetByAppointmentIdAsync>d__9::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<GetByAppointmentIdAsync>d__9::MoveNext()
+DA:61,0
+DA:62,0
+DA:63,0
+FN:22,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<GetByIdAsync>d__3::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<GetByIdAsync>d__3::MoveNext()
+DA:23,0
+DA:24,0
+DA:25,0
+FN:55,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<GetByPatientIdAsync>d__8::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<GetByPatientIdAsync>d__8::MoveNext()
+DA:56,0
+DA:57,0
+DA:58,0
+FN:34,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<UpdateAsync>d__5::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.BillRepository/<UpdateAsync>d__5::MoveNext()
+DA:35,0
+DA:36,0
+DA:37,0
+DA:38,0
+LF:36
+LH:0
+BRF:2
+BRH:0
+FNF:9
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Infrastructure/Repositories/DepartmentRepository.cs
+FN:11,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository::.ctor(HospitalManagement.Infrastructure.Data.HospitalDbContext)
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository::.ctor(HospitalManagement.Infrastructure.Data.HospitalDbContext)
+DA:12,0
+DA:13,0
+DA:14,0
+DA:15,0
+FN:27,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository/<AddAsync>d__4::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository/<AddAsync>d__4::MoveNext()
+DA:28,0
+DA:29,0
+DA:30,0
+DA:31,0
+DA:32,0
+FN:40,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository/<DeleteAsync>d__6::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository/<DeleteAsync>d__6::MoveNext()
+DA:41,0
+DA:42,0
+DA:43,0
+DA:44,0
+DA:45,0
+DA:46,0
+DA:47,0
+DA:48,0
+BRDA:43,174,0,0
+BRDA:43,174,1,0
+FN:50,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository/<ExistsAsync>d__7::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository/<ExistsAsync>d__7::MoveNext()
+DA:51,0
+DA:52,0
+DA:53,0
+FN:17,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository/<GetAllAsync>d__2::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository/<GetAllAsync>d__2::MoveNext()
+DA:18,0
+DA:19,0
+DA:20,0
+FN:22,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository/<GetByIdAsync>d__3::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository/<GetByIdAsync>d__3::MoveNext()
+DA:23,0
+DA:24,0
+DA:25,0
+FN:55,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository/<SearchAsync>d__8::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository/<SearchAsync>d__8::MoveNext()
+DA:56,0
+DA:57,0
+DA:58,0
+DA:59,0
+DA:60,0
+FN:34,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository/<UpdateAsync>d__5::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DepartmentRepository/<UpdateAsync>d__5::MoveNext()
+DA:35,0
+DA:36,0
+DA:37,0
+DA:38,0
+LF:35
+LH:0
+BRF:2
+BRH:0
+FNF:8
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Infrastructure/Repositories/DoctorRepository.cs
+FN:13,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository::.ctor(HospitalManagement.Infrastructure.Data.HospitalDbContext,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Infrastructure.Repositories.DoctorRepository>)
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository::.ctor(HospitalManagement.Infrastructure.Data.HospitalDbContext,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Infrastructure.Repositories.DoctorRepository>)
+DA:14,0
+DA:15,0
+DA:16,0
+DA:17,0
+DA:18,0
+FN:35,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<AddAsync>d__6::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<AddAsync>d__6::MoveNext()
+DA:36,0
+DA:37,0
+DA:38,0
+DA:39,0
+DA:40,0
+FN:48,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<DeleteAsync>d__8::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<DeleteAsync>d__8::MoveNext()
+DA:49,0
+DA:50,0
+DA:51,0
+DA:52,0
+DA:53,0
+DA:54,0
+DA:55,0
+DA:56,0
+BRDA:51,174,0,0
+BRDA:51,174,1,0
+FN:58,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<ExistsAsync>d__9::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<ExistsAsync>d__9::MoveNext()
+DA:59,0
+DA:60,0
+DA:61,0
+FN:20,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<GetAllAsync>d__3::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<GetAllAsync>d__3::MoveNext()
+DA:21,0
+DA:22,0
+DA:23,0
+FN:70,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<GetByDepartmentAsync>d__11::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<GetByDepartmentAsync>d__11::MoveNext()
+DA:71,0
+DA:72,0
+DA:73,0
+DA:74,0
+DA:75,0
+FN:30,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<GetByEmailAsync>d__5::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<GetByEmailAsync>d__5::MoveNext()
+DA:31,0
+DA:32,0
+DA:33,0
+FN:25,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<GetByIdAsync>d__4::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<GetByIdAsync>d__4::MoveNext()
+DA:26,0
+DA:27,0
+DA:28,0
+FN:63,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<SearchAsync>d__10::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<SearchAsync>d__10::MoveNext()
+DA:64,0
+DA:65,0
+DA:66,0
+DA:67,0
+DA:68,0
+FN:42,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<UpdateAsync>d__7::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<UpdateAsync>d__7::MoveNext()
+DA:43,0
+DA:44,0
+DA:45,0
+DA:46,0
+FN:77,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<ValidateLoginAsync>d__12::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.DoctorRepository/<ValidateLoginAsync>d__12::MoveNext()
+DA:78,0
+DA:79,0
+DA:80,0
+LF:47
+LH:0
+BRF:2
+BRH:0
+FNF:11
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Infrastructure/Repositories/OtherStaffRepository.cs
+FN:11,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository::.ctor(HospitalManagement.Infrastructure.Data.HospitalDbContext)
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository::.ctor(HospitalManagement.Infrastructure.Data.HospitalDbContext)
+DA:12,0
+DA:13,0
+DA:14,0
+DA:15,0
+FN:27,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository/<AddAsync>d__4::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository/<AddAsync>d__4::MoveNext()
+DA:28,0
+DA:29,0
+DA:30,0
+DA:31,0
+DA:32,0
+FN:40,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository/<DeleteAsync>d__6::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository/<DeleteAsync>d__6::MoveNext()
+DA:41,0
+DA:42,0
+DA:43,0
+DA:44,0
+DA:45,0
+DA:46,0
+DA:47,0
+DA:48,0
+BRDA:43,174,0,0
+BRDA:43,174,1,0
+FN:50,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository/<ExistsAsync>d__7::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository/<ExistsAsync>d__7::MoveNext()
+DA:51,0
+DA:52,0
+DA:53,0
+FN:17,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository/<GetAllAsync>d__2::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository/<GetAllAsync>d__2::MoveNext()
+DA:18,0
+DA:19,0
+DA:20,0
+FN:22,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository/<GetByIdAsync>d__3::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository/<GetByIdAsync>d__3::MoveNext()
+DA:23,0
+DA:24,0
+DA:25,0
+FN:55,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository/<SearchAsync>d__8::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository/<SearchAsync>d__8::MoveNext()
+DA:56,0
+DA:57,0
+DA:58,0
+DA:59,0
+DA:60,0
+FN:34,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository/<UpdateAsync>d__5::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.OtherStaffRepository/<UpdateAsync>d__5::MoveNext()
+DA:35,0
+DA:36,0
+DA:37,0
+DA:38,0
+LF:35
+LH:0
+BRF:2
+BRH:0
+FNF:8
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Infrastructure/Repositories/PatientRepository.cs
+FN:13,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository::.ctor(HospitalManagement.Infrastructure.Data.HospitalDbContext,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Infrastructure.Repositories.PatientRepository>)
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository::.ctor(HospitalManagement.Infrastructure.Data.HospitalDbContext,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Infrastructure.Repositories.PatientRepository>)
+DA:14,0
+DA:15,0
+DA:16,0
+DA:17,0
+DA:18,0
+FN:35,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<AddAsync>d__6::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<AddAsync>d__6::MoveNext()
+DA:36,0
+DA:37,0
+DA:38,0
+DA:39,0
+DA:40,0
+FN:48,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<DeleteAsync>d__8::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<DeleteAsync>d__8::MoveNext()
+DA:49,0
+DA:50,0
+DA:51,0
+DA:52,0
+DA:53,0
+DA:54,0
+DA:55,0
+DA:56,0
+BRDA:51,174,0,0
+BRDA:51,174,1,0
+FN:58,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<ExistsAsync>d__9::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<ExistsAsync>d__9::MoveNext()
+DA:59,0
+DA:60,0
+DA:61,0
+FN:20,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<GetAllAsync>d__3::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<GetAllAsync>d__3::MoveNext()
+DA:21,0
+DA:22,0
+DA:23,0
+FN:30,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<GetByEmailAsync>d__5::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<GetByEmailAsync>d__5::MoveNext()
+DA:31,0
+DA:32,0
+DA:33,0
+FN:25,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<GetByIdAsync>d__4::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<GetByIdAsync>d__4::MoveNext()
+DA:26,0
+DA:27,0
+DA:28,0
+FN:63,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<SearchAsync>d__10::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<SearchAsync>d__10::MoveNext()
+DA:64,0
+DA:65,0
+DA:66,0
+DA:67,0
+DA:68,0
+FN:42,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<UpdateAsync>d__7::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<UpdateAsync>d__7::MoveNext()
+DA:43,0
+DA:44,0
+DA:45,0
+DA:46,0
+FN:70,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<ValidateLoginAsync>d__11::MoveNext()
+FNDA:0,System.Void HospitalManagement.Infrastructure.Repositories.PatientRepository/<ValidateLoginAsync>d__11::MoveNext()
+DA:71,0
+DA:72,0
+DA:73,0
+LF:42
+LH:0
+BRF:2
+BRH:0
+FNF:10
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Infrastructure/Extensions/ServiceCollectionExtensions.cs
+FN:12,Microsoft.Extensions.DependencyInjection.IServiceCollection HospitalManagement.Infrastructure.Extensions.ServiceCollectionExtensions::AddInfrastructureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
+FNDA:0,Microsoft.Extensions.DependencyInjection.IServiceCollection HospitalManagement.Infrastructure.Extensions.ServiceCollectionExtensions::AddInfrastructureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
+DA:13,0
+DA:14,0
+DA:15,0
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
+DA:22,0
+DA:24,0
+DA:25,0
+LF:11
+LH:0
+BRF:0
+BRH:0
+FNF:1
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Infrastructure/Data/HospitalDbContext.cs
+FN:14,Microsoft.EntityFrameworkCore.DbSet`1<HospitalManagement.Domain.Entities.Patient> HospitalManagement.Infrastructure.Data.HospitalDbContext::get_Patients()
+FNDA:0,Microsoft.EntityFrameworkCore.DbSet`1<HospitalManagement.Domain.Entities.Patient> HospitalManagement.Infrastructure.Data.HospitalDbContext::get_Patients()
+DA:15,0
+FN:15,Microsoft.EntityFrameworkCore.DbSet`1<HospitalManagement.Domain.Entities.Doctor> HospitalManagement.Infrastructure.Data.HospitalDbContext::get_Doctors()
+FNDA:0,Microsoft.EntityFrameworkCore.DbSet`1<HospitalManagement.Domain.Entities.Doctor> HospitalManagement.Infrastructure.Data.HospitalDbContext::get_Doctors()
+DA:16,0
+FN:16,Microsoft.EntityFrameworkCore.DbSet`1<HospitalManagement.Domain.Entities.Department> HospitalManagement.Infrastructure.Data.HospitalDbContext::get_Departments()
+FNDA:0,Microsoft.EntityFrameworkCore.DbSet`1<HospitalManagement.Domain.Entities.Department> HospitalManagement.Infrastructure.Data.HospitalDbContext::get_Departments()
+DA:17,0
+FN:17,Microsoft.EntityFrameworkCore.DbSet`1<HospitalManagement.Domain.Entities.Appointment> HospitalManagement.Infrastructure.Data.HospitalDbContext::get_Appointments()
+FNDA:0,Microsoft.EntityFrameworkCore.DbSet`1<HospitalManagement.Domain.Entities.Appointment> HospitalManagement.Infrastructure.Data.HospitalDbContext::get_Appointments()
+DA:18,0
+FN:18,Microsoft.EntityFrameworkCore.DbSet`1<HospitalManagement.Domain.Entities.Bill> HospitalManagement.Infrastructure.Data.HospitalDbContext::get_Bills()
+FNDA:0,Microsoft.EntityFrameworkCore.DbSet`1<HospitalManagement.Domain.Entities.Bill> HospitalManagement.Infrastructure.Data.HospitalDbContext::get_Bills()
+DA:19,0
+FN:19,Microsoft.EntityFrameworkCore.DbSet`1<HospitalManagement.Domain.Entities.OtherStaff> HospitalManagement.Infrastructure.Data.HospitalDbContext::get_OtherStaff()
+FNDA:0,Microsoft.EntityFrameworkCore.DbSet`1<HospitalManagement.Domain.Entities.OtherStaff> HospitalManagement.Infrastructure.Data.HospitalDbContext::get_OtherStaff()
+DA:20,0
+FN:22,System.Void HospitalManagement.Infrastructure.Data.HospitalDbContext::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+FNDA:0,System.Void HospitalManagement.Infrastructure.Data.HospitalDbContext::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+DA:23,0
+DA:24,0
+DA:26,0
+DA:27,0
+DA:28,0
+DA:29,0
+DA:30,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:34,0
+DA:36,0
+DA:37,0
+DA:38,0
+DA:39,0
+DA:40,0
+DA:41,0
+DA:42,0
+DA:43,0
+DA:44,0
+DA:46,0
+DA:47,0
+DA:48,0
+DA:49,0
+DA:50,0
+DA:52,0
+DA:53,0
+DA:54,0
+DA:55,0
+DA:56,0
+DA:57,0
+DA:59,0
+DA:60,0
+DA:61,0
+DA:62,0
+DA:63,0
+DA:64,0
+DA:66,0
+DA:67,0
+DA:68,0
+DA:69,0
+DA:70,0
+DA:71,0
+FN:10,System.Void HospitalManagement.Infrastructure.Data.HospitalDbContext::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions`1<HospitalManagement.Infrastructure.Data.HospitalDbContext>)
+FNDA:0,System.Void HospitalManagement.Infrastructure.Data.HospitalDbContext::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions`1<HospitalManagement.Infrastructure.Data.HospitalDbContext>)
+DA:11,0
+DA:12,0
+DA:13,0
+LF:52
+LH:0
+BRF:0
+BRH:0
+FNF:8
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Web/Program.cs
+FN:4,System.Void Program::<Main>$(System.String[])
+FNDA:0,System.Void Program::<Main>$(System.String[])
+DA:5,0
+DA:7,0
+DA:8,0
+DA:9,0
+DA:10,0
+DA:12,0
+DA:14,0
+DA:15,0
+DA:16,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
+DA:22,0
+DA:23,0
+DA:25,0
+DA:27,0
+DA:28,0
+DA:29,0
+DA:30,0
+DA:31,0
+DA:33,0
+DA:34,0
+DA:35,0
+DA:36,0
+DA:37,0
+DA:38,0
+DA:40,0
+BRDA:27,243,0,0
+BRDA:27,243,1,0
+LF:28
+LH:0
+BRF:2
+BRH:0
+FNF:1
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Web/Pages/Index.cshtml.cs
+FN:14,System.Void HospitalManagement.Web.Pages.IndexModel::OnGet()
+FNDA:0,System.Void HospitalManagement.Web.Pages.IndexModel::OnGet()
+DA:15,0
+DA:16,0
+FN:8,System.Void HospitalManagement.Web.Pages.IndexModel::.ctor(Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Web.Pages.IndexModel>)
+FNDA:0,System.Void HospitalManagement.Web.Pages.IndexModel::.ctor(Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Web.Pages.IndexModel>)
+DA:9,0
+DA:10,0
+DA:11,0
+DA:12,0
+LF:6
+LH:0
+BRF:0
+BRH:0
+FNF:2
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Web/Pages/Index.cshtml
+FN:3,System.Void HospitalManagement.Web.Pages.Pages_Index/<ExecuteAsync>d__0::MoveNext()
+FNDA:0,System.Void HospitalManagement.Web.Pages.Pages_Index/<ExecuteAsync>d__0::MoveNext()
+DA:4,0
+LF:1
+LH:0
+BRF:0
+BRH:0
+FNF:1
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Application/Services/AppointmentService.cs
+FN:15,System.Void HospitalManagement.Application.Services.AppointmentService::.ctor(HospitalManagement.Domain.Interfaces.Repositories.IAppointmentRepository,AutoMapper.IMapper,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Application.Services.AppointmentService>)
+FNDA:0,System.Void HospitalManagement.Application.Services.AppointmentService::.ctor(HospitalManagement.Domain.Interfaces.Repositories.IAppointmentRepository,AutoMapper.IMapper,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Application.Services.AppointmentService>)
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
+FN:164,System.Void HospitalManagement.Application.Services.AppointmentService/<ApproveAppointmentAsync>d__13::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.AppointmentService/<ApproveAppointmentAsync>d__13::MoveNext()
+DA:165,0
+DA:167,0
+DA:168,0
+DA:169,0
+DA:170,0
+DA:171,0
+DA:172,0
+DA:175,0
+DA:176,0
+DA:177,0
+DA:178,0
+DA:179,0
+DA:180,0
+DA:181,0
+DA:182,0
+DA:184,0
+BRDA:170,234,0,0
+BRDA:170,234,1,0
+FN:53,System.Void HospitalManagement.Application.Services.AppointmentService/<CreateAsync>d__6::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.AppointmentService/<CreateAsync>d__6::MoveNext()
+DA:54,0
+DA:56,0
+DA:57,0
+DA:58,0
+DA:59,0
+DA:60,0
+DA:62,0
+DA:63,0
+DA:64,0
+DA:65,0
+DA:67,0
+FN:90,System.Void HospitalManagement.Application.Services.AppointmentService/<DeleteAsync>d__8::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.AppointmentService/<DeleteAsync>d__8::MoveNext()
+DA:91,0
+DA:93,0
+DA:94,0
+DA:95,0
+DA:96,0
+DA:97,0
+DA:98,0
+DA:99,0
+DA:100,0
+DA:102,0
+FN:23,System.Void HospitalManagement.Application.Services.AppointmentService/<GetAllAsync>d__4::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.AppointmentService/<GetAllAsync>d__4::MoveNext()
+DA:24,0
+DA:26,0
+DA:27,0
+DA:28,0
+DA:29,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:34,0
+DA:36,0
+FN:119,System.Void HospitalManagement.Application.Services.AppointmentService/<GetByDoctorIdAsync>d__10::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.AppointmentService/<GetByDoctorIdAsync>d__10::MoveNext()
+DA:120,0
+DA:122,0
+DA:123,0
+DA:124,0
+DA:125,0
+DA:127,0
+DA:128,0
+DA:129,0
+DA:130,0
+DA:132,0
+FN:38,System.Void HospitalManagement.Application.Services.AppointmentService/<GetByIdAsync>d__5::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.AppointmentService/<GetByIdAsync>d__5::MoveNext()
+DA:39,0
+DA:41,0
+DA:42,0
+DA:43,0
+DA:44,0
+DA:46,0
+DA:47,0
+DA:48,0
+DA:49,0
+DA:51,0
+BRDA:44,214,0,0
+BRDA:44,214,1,0
+FN:104,System.Void HospitalManagement.Application.Services.AppointmentService/<GetByPatientIdAsync>d__9::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.AppointmentService/<GetByPatientIdAsync>d__9::MoveNext()
+DA:105,0
+DA:107,0
+DA:108,0
+DA:109,0
+DA:110,0
+DA:112,0
+DA:113,0
+DA:114,0
+DA:115,0
+DA:117,0
+FN:134,System.Void HospitalManagement.Application.Services.AppointmentService/<GetPendingByDoctorIdAsync>d__11::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.AppointmentService/<GetPendingByDoctorIdAsync>d__11::MoveNext()
+DA:135,0
+DA:137,0
+DA:138,0
+DA:139,0
+DA:140,0
+DA:142,0
+DA:143,0
+DA:144,0
+DA:145,0
+DA:147,0
+FN:149,System.Void HospitalManagement.Application.Services.AppointmentService/<GetTodaysByDoctorIdAsync>d__12::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.AppointmentService/<GetTodaysByDoctorIdAsync>d__12::MoveNext()
+DA:150,0
+DA:152,0
+DA:153,0
+DA:154,0
+DA:155,0
+DA:157,0
+DA:158,0
+DA:159,0
+DA:160,0
+DA:162,0
+FN:69,System.Void HospitalManagement.Application.Services.AppointmentService/<UpdateAsync>d__7::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.AppointmentService/<UpdateAsync>d__7::MoveNext()
+DA:70,0
+DA:72,0
+DA:73,0
+DA:74,0
+DA:75,0
+DA:76,0
+DA:77,0
+DA:80,0
+DA:81,0
+DA:82,0
+DA:83,0
+DA:84,0
+DA:85,0
+DA:86,0
+DA:88,0
+BRDA:75,234,0,0
+BRDA:75,234,1,0
+LF:118
+LH:0
+BRF:6
+BRH:0
+FNF:11
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Application/Services/BillService.cs
+FN:15,System.Void HospitalManagement.Application.Services.BillService::.ctor(HospitalManagement.Domain.Interfaces.Repositories.IBillRepository,AutoMapper.IMapper,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Application.Services.BillService>)
+FNDA:0,System.Void HospitalManagement.Application.Services.BillService::.ctor(HospitalManagement.Domain.Interfaces.Repositories.IBillRepository,AutoMapper.IMapper,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Application.Services.BillService>)
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
+FN:53,System.Void HospitalManagement.Application.Services.BillService/<CreateAsync>d__6::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.BillService/<CreateAsync>d__6::MoveNext()
+DA:54,0
+DA:56,0
+DA:57,0
+DA:58,0
+DA:59,0
+DA:60,0
+DA:62,0
+DA:63,0
+DA:64,0
+DA:65,0
+DA:67,0
+FN:90,System.Void HospitalManagement.Application.Services.BillService/<DeleteAsync>d__8::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.BillService/<DeleteAsync>d__8::MoveNext()
+DA:91,0
+DA:93,0
+DA:94,0
+DA:95,0
+DA:96,0
+DA:97,0
+DA:98,0
+DA:99,0
+DA:100,0
+DA:102,0
+FN:23,System.Void HospitalManagement.Application.Services.BillService/<GetAllAsync>d__4::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.BillService/<GetAllAsync>d__4::MoveNext()
+DA:24,0
+DA:26,0
+DA:27,0
+DA:28,0
+DA:29,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:34,0
+DA:36,0
+FN:38,System.Void HospitalManagement.Application.Services.BillService/<GetByIdAsync>d__5::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.BillService/<GetByIdAsync>d__5::MoveNext()
+DA:39,0
+DA:41,0
+DA:42,0
+DA:43,0
+DA:44,0
+DA:46,0
+DA:47,0
+DA:48,0
+DA:49,0
+DA:51,0
+BRDA:44,214,0,0
+BRDA:44,214,1,0
+FN:104,System.Void HospitalManagement.Application.Services.BillService/<GetByPatientIdAsync>d__9::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.BillService/<GetByPatientIdAsync>d__9::MoveNext()
+DA:105,0
+DA:107,0
+DA:108,0
+DA:109,0
+DA:110,0
+DA:112,0
+DA:113,0
+DA:114,0
+DA:115,0
+DA:117,0
+FN:69,System.Void HospitalManagement.Application.Services.BillService/<UpdateAsync>d__7::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.BillService/<UpdateAsync>d__7::MoveNext()
+DA:70,0
+DA:72,0
+DA:73,0
+DA:74,0
+DA:75,0
+DA:76,0
+DA:77,0
+DA:80,0
+DA:81,0
+DA:82,0
+DA:83,0
+DA:84,0
+DA:85,0
+DA:86,0
+DA:88,0
+BRDA:75,234,0,0
+BRDA:75,234,1,0
+LF:72
+LH:0
+BRF:4
+BRH:0
+FNF:7
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Application/Services/DepartmentService.cs
+FN:15,System.Void HospitalManagement.Application.Services.DepartmentService::.ctor(HospitalManagement.Domain.Interfaces.Repositories.IDepartmentRepository,AutoMapper.IMapper,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Application.Services.DepartmentService>)
+FNDA:0,System.Void HospitalManagement.Application.Services.DepartmentService::.ctor(HospitalManagement.Domain.Interfaces.Repositories.IDepartmentRepository,AutoMapper.IMapper,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Application.Services.DepartmentService>)
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
+FN:53,System.Void HospitalManagement.Application.Services.DepartmentService/<CreateAsync>d__6::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.DepartmentService/<CreateAsync>d__6::MoveNext()
+DA:54,0
+DA:56,0
+DA:57,0
+DA:58,0
+DA:59,0
+DA:60,0
+DA:62,0
+DA:63,0
+DA:64,0
+DA:65,0
+DA:67,0
+FN:90,System.Void HospitalManagement.Application.Services.DepartmentService/<DeleteAsync>d__8::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.DepartmentService/<DeleteAsync>d__8::MoveNext()
+DA:91,0
+DA:93,0
+DA:94,0
+DA:95,0
+DA:96,0
+DA:97,0
+DA:98,0
+DA:99,0
+DA:100,0
+DA:102,0
+FN:23,System.Void HospitalManagement.Application.Services.DepartmentService/<GetAllAsync>d__4::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.DepartmentService/<GetAllAsync>d__4::MoveNext()
+DA:24,0
+DA:26,0
+DA:27,0
+DA:28,0
+DA:29,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:34,0
+DA:36,0
+FN:38,System.Void HospitalManagement.Application.Services.DepartmentService/<GetByIdAsync>d__5::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.DepartmentService/<GetByIdAsync>d__5::MoveNext()
+DA:39,0
+DA:41,0
+DA:42,0
+DA:43,0
+DA:44,0
+DA:46,0
+DA:47,0
+DA:48,0
+DA:49,0
+DA:51,0
+BRDA:44,214,0,0
+BRDA:44,214,1,0
+FN:69,System.Void HospitalManagement.Application.Services.DepartmentService/<UpdateAsync>d__7::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.DepartmentService/<UpdateAsync>d__7::MoveNext()
+DA:70,0
+DA:72,0
+DA:73,0
+DA:74,0
+DA:75,0
+DA:76,0
+DA:77,0
+DA:80,0
+DA:81,0
+DA:82,0
+DA:83,0
+DA:84,0
+DA:85,0
+DA:86,0
+DA:88,0
+BRDA:75,234,0,0
+BRDA:75,234,1,0
+LF:62
+LH:0
+BRF:4
+BRH:0
+FNF:6
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Application/Services/DoctorService.cs
+FN:15,System.Void HospitalManagement.Application.Services.DoctorService::.ctor(HospitalManagement.Domain.Interfaces.Repositories.IDoctorRepository,AutoMapper.IMapper,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Application.Services.DoctorService>)
+FNDA:0,System.Void HospitalManagement.Application.Services.DoctorService::.ctor(HospitalManagement.Domain.Interfaces.Repositories.IDoctorRepository,AutoMapper.IMapper,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Application.Services.DoctorService>)
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
+FN:53,System.Void HospitalManagement.Application.Services.DoctorService/<CreateAsync>d__6::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.DoctorService/<CreateAsync>d__6::MoveNext()
+DA:54,0
+DA:56,0
+DA:57,0
+DA:59,0
+DA:60,0
+DA:61,0
+DA:62,0
+DA:65,0
+DA:66,0
+DA:67,0
+DA:69,0
+DA:70,0
+DA:72,0
+DA:73,0
+DA:74,0
+DA:75,0
+DA:77,0
+BRDA:60,241,0,0
+BRDA:60,241,1,0
+FN:104,System.Void HospitalManagement.Application.Services.DoctorService/<DeleteAsync>d__8::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.DoctorService/<DeleteAsync>d__8::MoveNext()
+DA:105,0
+DA:107,0
+DA:108,0
+DA:109,0
+DA:110,0
+DA:111,0
+DA:112,0
+DA:113,0
+DA:114,0
+DA:116,0
+FN:23,System.Void HospitalManagement.Application.Services.DoctorService/<GetAllAsync>d__4::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.DoctorService/<GetAllAsync>d__4::MoveNext()
+DA:24,0
+DA:26,0
+DA:27,0
+DA:28,0
+DA:29,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:34,0
+DA:36,0
+FN:133,System.Void HospitalManagement.Application.Services.DoctorService/<GetByDepartmentAsync>d__10::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.DoctorService/<GetByDepartmentAsync>d__10::MoveNext()
+DA:134,0
+DA:136,0
+DA:137,0
+DA:138,0
+DA:139,0
+DA:141,0
+DA:142,0
+DA:143,0
+DA:144,0
+DA:146,0
+FN:38,System.Void HospitalManagement.Application.Services.DoctorService/<GetByIdAsync>d__5::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.DoctorService/<GetByIdAsync>d__5::MoveNext()
+DA:39,0
+DA:41,0
+DA:42,0
+DA:43,0
+DA:44,0
+DA:46,0
+DA:47,0
+DA:48,0
+DA:49,0
+DA:51,0
+BRDA:44,214,0,0
+BRDA:44,214,1,0
+FN:118,System.Void HospitalManagement.Application.Services.DoctorService/<SearchAsync>d__9::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.DoctorService/<SearchAsync>d__9::MoveNext()
+DA:119,0
+DA:121,0
+DA:122,0
+DA:123,0
+DA:124,0
+DA:126,0
+DA:127,0
+DA:128,0
+DA:129,0
+DA:131,0
+FN:79,System.Void HospitalManagement.Application.Services.DoctorService/<UpdateAsync>d__7::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.DoctorService/<UpdateAsync>d__7::MoveNext()
+DA:80,0
+DA:82,0
+DA:83,0
+DA:85,0
+DA:86,0
+DA:87,0
+DA:88,0
+DA:91,0
+DA:92,0
+DA:93,0
+DA:95,0
+DA:96,0
+DA:97,0
+DA:98,0
+DA:99,0
+DA:100,0
+DA:102,0
+BRDA:86,234,0,0
+BRDA:86,234,1,0
+FN:149,System.Void HospitalManagement.Application.Services.DoctorService/<ValidateLoginAsync>d__11::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.DoctorService/<ValidateLoginAsync>d__11::MoveNext()
+DA:150,0
+DA:152,0
+DA:153,0
+DA:155,0
+DA:156,0
+DA:157,0
+DA:158,0
+DA:161,0
+DA:162,0
+DA:163,0
+DA:166,0
+DA:167,0
+DA:168,0
+DA:171,0
+DA:173,0
+DA:174,0
+DA:175,0
+DA:176,0
+DA:178,0
+BRDA:156,216,0,0
+BRDA:156,216,1,0
+BRDA:161,268,0,0
+BRDA:161,268,1,0
+BRDA:166,307,0,0
+BRDA:166,307,1,0
+LF:109
+LH:0
+BRF:12
+BRH:0
+FNF:9
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Application/Services/OtherStaffService.cs
+FN:15,System.Void HospitalManagement.Application.Services.OtherStaffService::.ctor(HospitalManagement.Domain.Interfaces.Repositories.IOtherStaffRepository,AutoMapper.IMapper,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Application.Services.OtherStaffService>)
+FNDA:0,System.Void HospitalManagement.Application.Services.OtherStaffService::.ctor(HospitalManagement.Domain.Interfaces.Repositories.IOtherStaffRepository,AutoMapper.IMapper,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Application.Services.OtherStaffService>)
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
+FN:53,System.Void HospitalManagement.Application.Services.OtherStaffService/<CreateAsync>d__6::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.OtherStaffService/<CreateAsync>d__6::MoveNext()
+DA:54,0
+DA:56,0
+DA:57,0
+DA:58,0
+DA:59,0
+DA:60,0
+DA:62,0
+DA:63,0
+DA:64,0
+DA:65,0
+DA:67,0
+FN:90,System.Void HospitalManagement.Application.Services.OtherStaffService/<DeleteAsync>d__8::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.OtherStaffService/<DeleteAsync>d__8::MoveNext()
+DA:91,0
+DA:93,0
+DA:94,0
+DA:95,0
+DA:96,0
+DA:97,0
+DA:98,0
+DA:99,0
+DA:100,0
+DA:102,0
+FN:23,System.Void HospitalManagement.Application.Services.OtherStaffService/<GetAllAsync>d__4::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.OtherStaffService/<GetAllAsync>d__4::MoveNext()
+DA:24,0
+DA:26,0
+DA:27,0
+DA:28,0
+DA:29,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:34,0
+DA:36,0
+FN:38,System.Void HospitalManagement.Application.Services.OtherStaffService/<GetByIdAsync>d__5::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.OtherStaffService/<GetByIdAsync>d__5::MoveNext()
+DA:39,0
+DA:41,0
+DA:42,0
+DA:43,0
+DA:44,0
+DA:46,0
+DA:47,0
+DA:48,0
+DA:49,0
+DA:51,0
+BRDA:44,214,0,0
+BRDA:44,214,1,0
+FN:104,System.Void HospitalManagement.Application.Services.OtherStaffService/<SearchAsync>d__9::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.OtherStaffService/<SearchAsync>d__9::MoveNext()
+DA:105,0
+DA:107,0
+DA:108,0
+DA:109,0
+DA:110,0
+DA:112,0
+DA:113,0
+DA:114,0
+DA:115,0
+DA:117,0
+FN:69,System.Void HospitalManagement.Application.Services.OtherStaffService/<UpdateAsync>d__7::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.OtherStaffService/<UpdateAsync>d__7::MoveNext()
+DA:70,0
+DA:72,0
+DA:73,0
+DA:74,0
+DA:75,0
+DA:76,0
+DA:77,0
+DA:80,0
+DA:81,0
+DA:82,0
+DA:83,0
+DA:84,0
+DA:85,0
+DA:86,0
+DA:88,0
+BRDA:75,234,0,0
+BRDA:75,234,1,0
+LF:72
+LH:0
+BRF:4
+BRH:0
+FNF:7
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Application/Services/PatientService.cs
+FN:18,System.Void HospitalManagement.Application.Services.PatientService::.ctor(HospitalManagement.Domain.Interfaces.Repositories.IPatientRepository,AutoMapper.IMapper,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Application.Services.PatientService>)
+FNDA:0,System.Void HospitalManagement.Application.Services.PatientService::.ctor(HospitalManagement.Domain.Interfaces.Repositories.IPatientRepository,AutoMapper.IMapper,Microsoft.Extensions.Logging.ILogger`1<HospitalManagement.Application.Services.PatientService>)
+DA:19,0
+DA:20,0
+DA:21,0
+DA:22,0
+DA:23,0
+DA:24,0
+DA:25,0
+DA:26,0
+DA:27,0
+FN:59,System.Void HospitalManagement.Application.Services.PatientService/<CreateAsync>d__6::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.PatientService/<CreateAsync>d__6::MoveNext()
+DA:60,0
+DA:62,0
+DA:63,0
+DA:65,0
+DA:66,0
+DA:67,0
+DA:68,0
+DA:71,0
+DA:72,0
+DA:73,0
+DA:75,0
+DA:76,0
+DA:78,0
+DA:79,0
+DA:80,0
+DA:81,0
+DA:83,0
+BRDA:66,241,0,0
+BRDA:66,241,1,0
+FN:110,System.Void HospitalManagement.Application.Services.PatientService/<DeleteAsync>d__8::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.PatientService/<DeleteAsync>d__8::MoveNext()
+DA:111,0
+DA:113,0
+DA:114,0
+DA:116,0
+DA:117,0
+DA:118,0
+DA:119,0
+DA:122,0
+DA:123,0
+DA:124,0
+DA:125,0
+DA:126,0
+DA:127,0
+DA:129,0
+BRDA:117,227,0,0
+BRDA:117,227,1,0
+FN:29,System.Void HospitalManagement.Application.Services.PatientService/<GetAllAsync>d__4::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.PatientService/<GetAllAsync>d__4::MoveNext()
+DA:30,0
+DA:32,0
+DA:33,0
+DA:34,0
+DA:35,0
+DA:37,0
+DA:38,0
+DA:39,0
+DA:40,0
+DA:42,0
+FN:44,System.Void HospitalManagement.Application.Services.PatientService/<GetByIdAsync>d__5::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.PatientService/<GetByIdAsync>d__5::MoveNext()
+DA:45,0
+DA:47,0
+DA:48,0
+DA:49,0
+DA:50,0
+DA:52,0
+DA:53,0
+DA:54,0
+DA:55,0
+DA:57,0
+BRDA:50,214,0,0
+BRDA:50,214,1,0
+FN:131,System.Void HospitalManagement.Application.Services.PatientService/<SearchAsync>d__9::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.PatientService/<SearchAsync>d__9::MoveNext()
+DA:132,0
+DA:134,0
+DA:135,0
+DA:136,0
+DA:137,0
+DA:139,0
+DA:140,0
+DA:141,0
+DA:142,0
+DA:144,0
+FN:85,System.Void HospitalManagement.Application.Services.PatientService/<UpdateAsync>d__7::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.PatientService/<UpdateAsync>d__7::MoveNext()
+DA:86,0
+DA:88,0
+DA:89,0
+DA:91,0
+DA:92,0
+DA:93,0
+DA:94,0
+DA:97,0
+DA:98,0
+DA:99,0
+DA:101,0
+DA:102,0
+DA:103,0
+DA:104,0
+DA:105,0
+DA:106,0
+DA:108,0
+BRDA:92,234,0,0
+BRDA:92,234,1,0
+FN:147,System.Void HospitalManagement.Application.Services.PatientService/<ValidateLoginAsync>d__10::MoveNext()
+FNDA:0,System.Void HospitalManagement.Application.Services.PatientService/<ValidateLoginAsync>d__10::MoveNext()
+DA:148,0
+DA:150,0
+DA:151,0
+DA:153,0
+DA:154,0
+DA:155,0
+DA:156,0
+DA:159,0
+DA:160,0
+DA:161,0
+DA:164,0
+DA:165,0
+DA:166,0
+DA:169,0
+DA:171,0
+DA:172,0
+DA:173,0
+DA:174,0
+DA:176,0
+BRDA:154,216,0,0
+BRDA:154,216,1,0
+BRDA:159,268,0,0
+BRDA:159,268,1,0
+BRDA:164,307,0,0
+BRDA:164,307,1,0
+LF:106
+LH:0
+BRF:14
+BRH:0
+FNF:8
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Application/Mappings/MappingProfile.cs
+FN:11,System.Void HospitalManagement.Application.Mappings.MappingProfile::.ctor()
+FNDA:0,System.Void HospitalManagement.Application.Mappings.MappingProfile::.ctor()
+DA:12,0
+DA:13,0
+DA:14,0
+DA:15,0
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+DA:21,0
+DA:22,0
+DA:23,0
+DA:24,0
+DA:25,0
+DA:26,0
+DA:27,0
+DA:28,0
+DA:29,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:34,0
+DA:35,0
+DA:36,0
+DA:38,0
+DA:39,0
+DA:40,0
+DA:41,0
+DA:42,0
+DA:43,0
+DA:44,0
+DA:45,0
+DA:46,0
+DA:48,0
+DA:49,0
+DA:50,0
+DA:51,0
+DA:52,0
+DA:53,0
+DA:54,0
+DA:55,0
+DA:57,0
+DA:58,0
+DA:59,0
+DA:60,0
+DA:61,0
+DA:62,0
+DA:63,0
+LF:47
+LH:0
+BRF:0
+BRH:0
+FNF:1
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Application/Extensions/ServiceCollectionExtensions.cs
+FN:11,Microsoft.Extensions.DependencyInjection.IServiceCollection HospitalManagement.Application.Extensions.ServiceCollectionExtensions::AddApplicationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+FNDA:0,Microsoft.Extensions.DependencyInjection.IServiceCollection HospitalManagement.Application.Extensions.ServiceCollectionExtensions::AddApplicationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+DA:12,0
+DA:13,0
+DA:15,0
+DA:16,0
+DA:17,0
+DA:18,0
+DA:19,0
+DA:20,0
+DA:22,0
+DA:23,0
+LF:10
+LH:0
+BRF:0
+BRH:0
+FNF:1
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Application/DTOs/AppointmentDto.cs
+FN:7,System.Int32 HospitalManagement.Application.DTOs.AppointmentDto::get_AppointmentID()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.AppointmentDto::get_AppointmentID()
+DA:8,0
+FN:8,System.Int32 HospitalManagement.Application.DTOs.AppointmentDto::get_PatientID()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.AppointmentDto::get_PatientID()
+DA:9,0
+FN:9,System.String HospitalManagement.Application.DTOs.AppointmentDto::get_PatientName()
+FNDA:0,System.String HospitalManagement.Application.DTOs.AppointmentDto::get_PatientName()
+DA:10,0
+FN:10,System.Int32 HospitalManagement.Application.DTOs.AppointmentDto::get_DoctorID()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.AppointmentDto::get_DoctorID()
+DA:11,0
+FN:11,System.String HospitalManagement.Application.DTOs.AppointmentDto::get_DoctorName()
+FNDA:0,System.String HospitalManagement.Application.DTOs.AppointmentDto::get_DoctorName()
+DA:12,0
+FN:12,System.DateTime HospitalManagement.Application.DTOs.AppointmentDto::get_AppointmentDate()
+FNDA:0,System.DateTime HospitalManagement.Application.DTOs.AppointmentDto::get_AppointmentDate()
+DA:13,0
+FN:13,System.String HospitalManagement.Application.DTOs.AppointmentDto::get_TimeSlot()
+FNDA:0,System.String HospitalManagement.Application.DTOs.AppointmentDto::get_TimeSlot()
+DA:14,0
+FN:14,System.String HospitalManagement.Application.DTOs.AppointmentDto::get_Status()
+FNDA:0,System.String HospitalManagement.Application.DTOs.AppointmentDto::get_Status()
+DA:15,0
+FN:15,System.String HospitalManagement.Application.DTOs.AppointmentDto::get_Disease()
+FNDA:0,System.String HospitalManagement.Application.DTOs.AppointmentDto::get_Disease()
+DA:16,0
+FN:16,System.String HospitalManagement.Application.DTOs.AppointmentDto::get_Progress()
+FNDA:0,System.String HospitalManagement.Application.DTOs.AppointmentDto::get_Progress()
+DA:17,0
+FN:17,System.String HospitalManagement.Application.DTOs.AppointmentDto::get_Prescription()
+FNDA:0,System.String HospitalManagement.Application.DTOs.AppointmentDto::get_Prescription()
+DA:18,0
+FN:18,System.Boolean HospitalManagement.Application.DTOs.AppointmentDto::get_FeedbackGiven()
+FNDA:0,System.Boolean HospitalManagement.Application.DTOs.AppointmentDto::get_FeedbackGiven()
+DA:19,0
+FN:23,System.Int32 HospitalManagement.Application.DTOs.AppointmentCreateDto::get_PatientID()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.AppointmentCreateDto::get_PatientID()
+DA:24,0
+FN:24,System.Int32 HospitalManagement.Application.DTOs.AppointmentCreateDto::get_DoctorID()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.AppointmentCreateDto::get_DoctorID()
+DA:25,0
+FN:25,System.DateTime HospitalManagement.Application.DTOs.AppointmentCreateDto::get_AppointmentDate()
+FNDA:0,System.DateTime HospitalManagement.Application.DTOs.AppointmentCreateDto::get_AppointmentDate()
+DA:26,0
+FN:26,System.String HospitalManagement.Application.DTOs.AppointmentCreateDto::get_TimeSlot()
+FNDA:0,System.String HospitalManagement.Application.DTOs.AppointmentCreateDto::get_TimeSlot()
+DA:27,0
+FN:31,System.String HospitalManagement.Application.DTOs.AppointmentUpdateDto::get_Status()
+FNDA:0,System.String HospitalManagement.Application.DTOs.AppointmentUpdateDto::get_Status()
+DA:32,0
+FN:32,System.String HospitalManagement.Application.DTOs.AppointmentUpdateDto::get_Disease()
+FNDA:0,System.String HospitalManagement.Application.DTOs.AppointmentUpdateDto::get_Disease()
+DA:33,0
+FN:33,System.String HospitalManagement.Application.DTOs.AppointmentUpdateDto::get_Progress()
+FNDA:0,System.String HospitalManagement.Application.DTOs.AppointmentUpdateDto::get_Progress()
+DA:34,0
+FN:34,System.String HospitalManagement.Application.DTOs.AppointmentUpdateDto::get_Prescription()
+FNDA:0,System.String HospitalManagement.Application.DTOs.AppointmentUpdateDto::get_Prescription()
+DA:35,0
+LF:20
+LH:0
+BRF:0
+BRH:0
+FNF:20
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Application/DTOs/BillDto.cs
+FN:7,System.Int32 HospitalManagement.Application.DTOs.BillDto::get_BillID()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.BillDto::get_BillID()
+DA:8,0
+FN:8,System.Int32 HospitalManagement.Application.DTOs.BillDto::get_PatientID()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.BillDto::get_PatientID()
+DA:9,0
+FN:9,System.String HospitalManagement.Application.DTOs.BillDto::get_PatientName()
+FNDA:0,System.String HospitalManagement.Application.DTOs.BillDto::get_PatientName()
+DA:10,0
+FN:10,System.Int32 HospitalManagement.Application.DTOs.BillDto::get_AppointmentID()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.BillDto::get_AppointmentID()
+DA:11,0
+FN:11,System.Decimal HospitalManagement.Application.DTOs.BillDto::get_Amount()
+FNDA:0,System.Decimal HospitalManagement.Application.DTOs.BillDto::get_Amount()
+DA:12,0
+FN:12,System.Boolean HospitalManagement.Application.DTOs.BillDto::get_IsPaid()
+FNDA:0,System.Boolean HospitalManagement.Application.DTOs.BillDto::get_IsPaid()
+DA:13,0
+FN:13,System.DateTime HospitalManagement.Application.DTOs.BillDto::get_BillDate()
+FNDA:0,System.DateTime HospitalManagement.Application.DTOs.BillDto::get_BillDate()
+DA:14,0
+FN:14,System.Nullable`1<System.DateTime> HospitalManagement.Application.DTOs.BillDto::get_PaymentDate()
+FNDA:0,System.Nullable`1<System.DateTime> HospitalManagement.Application.DTOs.BillDto::get_PaymentDate()
+DA:15,0
+FN:19,System.Int32 HospitalManagement.Application.DTOs.BillCreateDto::get_PatientID()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.BillCreateDto::get_PatientID()
+DA:20,0
+FN:20,System.Int32 HospitalManagement.Application.DTOs.BillCreateDto::get_AppointmentID()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.BillCreateDto::get_AppointmentID()
+DA:21,0
+FN:21,System.Decimal HospitalManagement.Application.DTOs.BillCreateDto::get_Amount()
+FNDA:0,System.Decimal HospitalManagement.Application.DTOs.BillCreateDto::get_Amount()
+DA:22,0
+FN:26,System.Boolean HospitalManagement.Application.DTOs.BillUpdateDto::get_IsPaid()
+FNDA:0,System.Boolean HospitalManagement.Application.DTOs.BillUpdateDto::get_IsPaid()
+DA:27,0
+FN:27,System.Nullable`1<System.DateTime> HospitalManagement.Application.DTOs.BillUpdateDto::get_PaymentDate()
+FNDA:0,System.Nullable`1<System.DateTime> HospitalManagement.Application.DTOs.BillUpdateDto::get_PaymentDate()
+DA:28,0
+LF:13
+LH:0
+BRF:0
+BRH:0
+FNF:13
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Application/DTOs/DepartmentDto.cs
+FN:7,System.Int32 HospitalManagement.Application.DTOs.DepartmentDto::get_DeptNo()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.DepartmentDto::get_DeptNo()
+DA:8,0
+FN:8,System.String HospitalManagement.Application.DTOs.DepartmentDto::get_DeptName()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DepartmentDto::get_DeptName()
+DA:9,0
+FN:9,System.String HospitalManagement.Application.DTOs.DepartmentDto::get_Description()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DepartmentDto::get_Description()
+DA:10,0
+FN:14,System.String HospitalManagement.Application.DTOs.DepartmentCreateDto::get_DeptName()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DepartmentCreateDto::get_DeptName()
+DA:15,0
+FN:15,System.String HospitalManagement.Application.DTOs.DepartmentCreateDto::get_Description()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DepartmentCreateDto::get_Description()
+DA:16,0
+FN:20,System.String HospitalManagement.Application.DTOs.DepartmentUpdateDto::get_DeptName()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DepartmentUpdateDto::get_DeptName()
+DA:21,0
+FN:21,System.String HospitalManagement.Application.DTOs.DepartmentUpdateDto::get_Description()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DepartmentUpdateDto::get_Description()
+DA:22,0
+LF:7
+LH:0
+BRF:0
+BRH:0
+FNF:7
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Application/DTOs/DoctorDto.cs
+FN:7,System.Int32 HospitalManagement.Application.DTOs.DoctorDto::get_DoctorID()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.DoctorDto::get_DoctorID()
+DA:8,0
+FN:8,System.String HospitalManagement.Application.DTOs.DoctorDto::get_Name()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorDto::get_Name()
+DA:9,0
+FN:9,System.String HospitalManagement.Application.DTOs.DoctorDto::get_Email()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorDto::get_Email()
+DA:10,0
+FN:10,System.DateTime HospitalManagement.Application.DTOs.DoctorDto::get_BirthDate()
+FNDA:0,System.DateTime HospitalManagement.Application.DTOs.DoctorDto::get_BirthDate()
+DA:11,0
+FN:11,System.Int32 HospitalManagement.Application.DTOs.DoctorDto::get_DeptNo()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.DoctorDto::get_DeptNo()
+DA:12,0
+FN:12,System.String HospitalManagement.Application.DTOs.DoctorDto::get_DepartmentName()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorDto::get_DepartmentName()
+DA:13,0
+FN:13,System.String HospitalManagement.Application.DTOs.DoctorDto::get_Phone()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorDto::get_Phone()
+DA:14,0
+FN:14,System.String HospitalManagement.Application.DTOs.DoctorDto::get_Gender()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorDto::get_Gender()
+DA:15,0
+FN:15,System.String HospitalManagement.Application.DTOs.DoctorDto::get_Address()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorDto::get_Address()
+DA:16,0
+FN:16,System.Int32 HospitalManagement.Application.DTOs.DoctorDto::get_Experience()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.DoctorDto::get_Experience()
+DA:17,0
+FN:17,System.Decimal HospitalManagement.Application.DTOs.DoctorDto::get_ChargesPerVisit()
+FNDA:0,System.Decimal HospitalManagement.Application.DTOs.DoctorDto::get_ChargesPerVisit()
+DA:18,0
+FN:18,System.String HospitalManagement.Application.DTOs.DoctorDto::get_Specialization()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorDto::get_Specialization()
+DA:19,0
+FN:19,System.String HospitalManagement.Application.DTOs.DoctorDto::get_Qualification()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorDto::get_Qualification()
+DA:20,0
+FN:20,System.Decimal HospitalManagement.Application.DTOs.DoctorDto::get_ReputationIndex()
+FNDA:0,System.Decimal HospitalManagement.Application.DTOs.DoctorDto::get_ReputationIndex()
+DA:21,0
+FN:21,System.Int32 HospitalManagement.Application.DTOs.DoctorDto::get_PatientsTreated()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.DoctorDto::get_PatientsTreated()
+DA:22,0
+FN:22,System.Int32 HospitalManagement.Application.DTOs.DoctorDto::get_Age()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.DoctorDto::get_Age()
+DA:23,0
+FN:27,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Name()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Name()
+DA:28,0
+FN:28,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Email()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Email()
+DA:29,0
+FN:29,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Password()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Password()
+DA:30,0
+FN:30,System.DateTime HospitalManagement.Application.DTOs.DoctorCreateDto::get_BirthDate()
+FNDA:0,System.DateTime HospitalManagement.Application.DTOs.DoctorCreateDto::get_BirthDate()
+DA:31,0
+FN:31,System.Int32 HospitalManagement.Application.DTOs.DoctorCreateDto::get_DeptNo()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.DoctorCreateDto::get_DeptNo()
+DA:32,0
+FN:32,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Phone()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Phone()
+DA:33,0
+FN:33,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Gender()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Gender()
+DA:34,0
+FN:34,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Address()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Address()
+DA:35,0
+FN:35,System.Int32 HospitalManagement.Application.DTOs.DoctorCreateDto::get_Experience()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.DoctorCreateDto::get_Experience()
+DA:36,0
+FN:36,System.Decimal HospitalManagement.Application.DTOs.DoctorCreateDto::get_Salary()
+FNDA:0,System.Decimal HospitalManagement.Application.DTOs.DoctorCreateDto::get_Salary()
+DA:37,0
+FN:37,System.Decimal HospitalManagement.Application.DTOs.DoctorCreateDto::get_ChargesPerVisit()
+FNDA:0,System.Decimal HospitalManagement.Application.DTOs.DoctorCreateDto::get_ChargesPerVisit()
+DA:38,0
+FN:38,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Specialization()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Specialization()
+DA:39,0
+FN:39,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Qualification()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorCreateDto::get_Qualification()
+DA:40,0
+FN:44,System.String HospitalManagement.Application.DTOs.DoctorUpdateDto::get_Name()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorUpdateDto::get_Name()
+DA:45,0
+FN:45,System.String HospitalManagement.Application.DTOs.DoctorUpdateDto::get_Phone()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorUpdateDto::get_Phone()
+DA:46,0
+FN:46,System.String HospitalManagement.Application.DTOs.DoctorUpdateDto::get_Address()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorUpdateDto::get_Address()
+DA:47,0
+FN:47,System.Int32 HospitalManagement.Application.DTOs.DoctorUpdateDto::get_Experience()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.DoctorUpdateDto::get_Experience()
+DA:48,0
+FN:48,System.Decimal HospitalManagement.Application.DTOs.DoctorUpdateDto::get_Salary()
+FNDA:0,System.Decimal HospitalManagement.Application.DTOs.DoctorUpdateDto::get_Salary()
+DA:49,0
+FN:49,System.Decimal HospitalManagement.Application.DTOs.DoctorUpdateDto::get_ChargesPerVisit()
+FNDA:0,System.Decimal HospitalManagement.Application.DTOs.DoctorUpdateDto::get_ChargesPerVisit()
+DA:50,0
+FN:50,System.String HospitalManagement.Application.DTOs.DoctorUpdateDto::get_Specialization()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorUpdateDto::get_Specialization()
+DA:51,0
+FN:51,System.String HospitalManagement.Application.DTOs.DoctorUpdateDto::get_Qualification()
+FNDA:0,System.String HospitalManagement.Application.DTOs.DoctorUpdateDto::get_Qualification()
+DA:52,0
+LF:37
+LH:0
+BRF:0
+BRH:0
+FNF:37
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Application/DTOs/OtherStaffDto.cs
+FN:7,System.Int32 HospitalManagement.Application.DTOs.OtherStaffDto::get_StaffID()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.OtherStaffDto::get_StaffID()
+DA:8,0
+FN:8,System.String HospitalManagement.Application.DTOs.OtherStaffDto::get_Name()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffDto::get_Name()
+DA:9,0
+FN:9,System.DateTime HospitalManagement.Application.DTOs.OtherStaffDto::get_BirthDate()
+FNDA:0,System.DateTime HospitalManagement.Application.DTOs.OtherStaffDto::get_BirthDate()
+DA:10,0
+FN:10,System.String HospitalManagement.Application.DTOs.OtherStaffDto::get_Phone()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffDto::get_Phone()
+DA:11,0
+FN:11,System.String HospitalManagement.Application.DTOs.OtherStaffDto::get_Gender()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffDto::get_Gender()
+DA:12,0
+FN:12,System.String HospitalManagement.Application.DTOs.OtherStaffDto::get_Designation()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffDto::get_Designation()
+DA:13,0
+FN:13,System.String HospitalManagement.Application.DTOs.OtherStaffDto::get_Address()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffDto::get_Address()
+DA:14,0
+FN:14,System.Decimal HospitalManagement.Application.DTOs.OtherStaffDto::get_Salary()
+FNDA:0,System.Decimal HospitalManagement.Application.DTOs.OtherStaffDto::get_Salary()
+DA:15,0
+FN:15,System.String HospitalManagement.Application.DTOs.OtherStaffDto::get_Qualification()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffDto::get_Qualification()
+DA:16,0
+FN:20,System.String HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_Name()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_Name()
+DA:21,0
+FN:21,System.DateTime HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_BirthDate()
+FNDA:0,System.DateTime HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_BirthDate()
+DA:22,0
+FN:22,System.String HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_Phone()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_Phone()
+DA:23,0
+FN:23,System.String HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_Gender()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_Gender()
+DA:24,0
+FN:24,System.String HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_Designation()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_Designation()
+DA:25,0
+FN:25,System.String HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_Address()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_Address()
+DA:26,0
+FN:26,System.Decimal HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_Salary()
+FNDA:0,System.Decimal HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_Salary()
+DA:27,0
+FN:27,System.String HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_Qualification()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffCreateDto::get_Qualification()
+DA:28,0
+FN:32,System.String HospitalManagement.Application.DTOs.OtherStaffUpdateDto::get_Name()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffUpdateDto::get_Name()
+DA:33,0
+FN:33,System.String HospitalManagement.Application.DTOs.OtherStaffUpdateDto::get_Phone()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffUpdateDto::get_Phone()
+DA:34,0
+FN:34,System.String HospitalManagement.Application.DTOs.OtherStaffUpdateDto::get_Designation()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffUpdateDto::get_Designation()
+DA:35,0
+FN:35,System.String HospitalManagement.Application.DTOs.OtherStaffUpdateDto::get_Address()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffUpdateDto::get_Address()
+DA:36,0
+FN:36,System.Decimal HospitalManagement.Application.DTOs.OtherStaffUpdateDto::get_Salary()
+FNDA:0,System.Decimal HospitalManagement.Application.DTOs.OtherStaffUpdateDto::get_Salary()
+DA:37,0
+FN:37,System.String HospitalManagement.Application.DTOs.OtherStaffUpdateDto::get_Qualification()
+FNDA:0,System.String HospitalManagement.Application.DTOs.OtherStaffUpdateDto::get_Qualification()
+DA:38,0
+LF:23
+LH:0
+BRF:0
+BRH:0
+FNF:23
+FNH:0
+end_of_record
+SF:/modernize-data/studio-data/TNT1001/APP1449/transformed-code/489/studio-workspace/HospitalRManagement/src/HospitalManagement.Application/DTOs/PatientDto.cs
+FN:7,System.Int32 HospitalManagement.Application.DTOs.PatientDto::get_PatientID()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.PatientDto::get_PatientID()
+DA:8,0
+FN:8,System.String HospitalManagement.Application.DTOs.PatientDto::get_Name()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientDto::get_Name()
+DA:9,0
+FN:9,System.String HospitalManagement.Application.DTOs.PatientDto::get_Phone()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientDto::get_Phone()
+DA:10,0
+FN:10,System.String HospitalManagement.Application.DTOs.PatientDto::get_Address()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientDto::get_Address()
+DA:11,0
+FN:11,System.DateTime HospitalManagement.Application.DTOs.PatientDto::get_BirthDate()
+FNDA:0,System.DateTime HospitalManagement.Application.DTOs.PatientDto::get_BirthDate()
+DA:12,0
+FN:12,System.String HospitalManagement.Application.DTOs.PatientDto::get_Gender()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientDto::get_Gender()
+DA:13,0
+FN:13,System.String HospitalManagement.Application.DTOs.PatientDto::get_Email()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientDto::get_Email()
+DA:14,0
+FN:14,System.Int32 HospitalManagement.Application.DTOs.PatientDto::get_Age()
+FNDA:0,System.Int32 HospitalManagement.Application.DTOs.PatientDto::get_Age()
+DA:15,0
+FN:19,System.String HospitalManagement.Application.DTOs.PatientCreateDto::get_Name()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientCreateDto::get_Name()
+DA:20,0
+FN:20,System.String HospitalManagement.Application.DTOs.PatientCreateDto::get_Phone()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientCreateDto::get_Phone()
+DA:21,0
+FN:21,System.String HospitalManagement.Application.DTOs.PatientCreateDto::get_Address()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientCreateDto::get_Address()
+DA:22,0
+FN:22,System.DateTime HospitalManagement.Application.DTOs.PatientCreateDto::get_BirthDate()
+FNDA:0,System.DateTime HospitalManagement.Application.DTOs.PatientCreateDto::get_BirthDate()
+DA:23,0
+FN:23,System.String HospitalManagement.Application.DTOs.PatientCreateDto::get_Gender()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientCreateDto::get_Gender()
+DA:24,0
+FN:24,System.String HospitalManagement.Application.DTOs.PatientCreateDto::get_Email()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientCreateDto::get_Email()
+DA:25,0
+FN:25,System.String HospitalManagement.Application.DTOs.PatientCreateDto::get_Password()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientCreateDto::get_Password()
+DA:26,0
+FN:30,System.String HospitalManagement.Application.DTOs.PatientUpdateDto::get_Name()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientUpdateDto::get_Name()
+DA:31,0
+FN:31,System.String HospitalManagement.Application.DTOs.PatientUpdateDto::get_Phone()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientUpdateDto::get_Phone()
+DA:32,0
+FN:32,System.String HospitalManagement.Application.DTOs.PatientUpdateDto::get_Address()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientUpdateDto::get_Address()
+DA:33,0
+FN:33,System.DateTime HospitalManagement.Application.DTOs.PatientUpdateDto::get_BirthDate()
+FNDA:0,System.DateTime HospitalManagement.Application.DTOs.PatientUpdateDto::get_BirthDate()
+DA:34,0
+FN:34,System.String HospitalManagement.Application.DTOs.PatientUpdateDto::get_Gender()
+FNDA:0,System.String HospitalManagement.Application.DTOs.PatientUpdateDto::get_Gender()
+DA:35,0
+LF:20
+LH:0
+BRF:0
+BRH:0
+FNF:20
+FNH:0
+end_of_record
