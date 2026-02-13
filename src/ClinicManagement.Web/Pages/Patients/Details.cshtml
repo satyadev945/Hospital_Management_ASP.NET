@@ -1,0 +1,147 @@
+@page "{id:int}"
+@model ClinicManagement.Web.Pages.Patients.DetailsModel
+@{
+    ViewData["Title"] = "Patient Details";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2 class="mb-0">
+                            <i class="bi bi-person-circle"></i> Patient Details
+                        </h2>
+                        <div>
+                            <a asp-page="./Edit" asp-route-id="@Model.Patient.Id" class="btn btn-warning btn-sm">
+                                <i class="bi bi-pencil"></i> Edit
+                            </a>
+                            <a asp-page="./Delete" asp-route-id="@Model.Patient.Id" class="btn btn-danger btn-sm">
+                                <i class="bi bi-trash"></i> Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="text-primary mb-3">Personal Information</h4>
+                            
+                            <dl class="row">
+                                <dt class="col-sm-4">
+                                    <i class="bi bi-person"></i> Name:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    <strong>@Model.Patient.FirstName @Model.Patient.LastName</strong>
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                    <i class="bi bi-calendar"></i> Date of Birth:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Model.Patient.DateOfBirth.ToString("MMMM dd, yyyy")
+                                    <small class="text-muted">(@Model.Age years old)</small>
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                    <i class="bi bi-gender-ambiguous"></i> Gender:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @if (Model.Patient.Gender == "Male")
+                                    {
+                                        <span class="badge bg-info">
+                                            <i class="bi bi-gender-male"></i> @Model.Patient.Gender
+                                        </span>
+                                    }
+                                    else if (Model.Patient.Gender == "Female")
+                                    {
+                                        <span class="badge bg-danger">
+                                            <i class="bi bi-gender-female"></i> @Model.Patient.Gender
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">@Model.Patient.Gender</span>
+                                    }
+                                </dd>
+                            </dl>
+                        </div>
+
+                        <div class="col-md-6">
+                            <h4 class="text-primary mb-3">Contact Information</h4>
+                            
+                            <dl class="row">
+                                <dt class="col-sm-4">
+                                    <i class="bi bi-envelope"></i> Email:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    <a href="mailto:@Model.Patient.Email">@Model.Patient.Email</a>
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                    <i class="bi bi-telephone"></i> Phone:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    <a href="tel:@Model.Patient.PhoneNumber">@Model.Patient.PhoneNumber</a>
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                    <i class="bi bi-geo-alt"></i> Address:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Model.Patient.Address
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="text-primary mb-3">
+                                <i class="bi bi-file-medical"></i> Medical History
+                            </h4>
+                            @if (!string.IsNullOrWhiteSpace(Model.Patient.MedicalHistory))
+                            {
+                                <div class="alert alert-light border">
+                                    <p class="mb-0" style="white-space: pre-wrap;">@Model.Patient.MedicalHistory</p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-info">
+                                    <i class="bi bi-info-circle"></i> No medical history recorded.
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="text-primary mb-3">
+                                <i class="bi bi-calendar-check"></i> Appointments
+                            </h4>
+                            <div class="alert alert-secondary">
+                                <i class="bi bi-info-circle"></i> Appointment history feature coming soon.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between">
+                        <a asp-page="./Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Back to List
+                        </a>
+                        <small class="text-muted align-self-center">
+                            Patient ID: @Model.Patient.Id
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,156 @@
+@page "{id:int}"
+@model ClinicManagement.Web.Pages.Doctors.DetailsModel
+@{
+    ViewData["Title"] = "Doctor Details";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2 class="mb-0">
+                            <i class="bi bi-person-badge-fill"></i> Doctor Details
+                        </h2>
+                        <div>
+                            <a asp-page="./Edit" asp-route-id="@Model.Doctor.Id" class="btn btn-warning btn-sm">
+                                <i class="bi bi-pencil"></i> Edit
+                            </a>
+                            <a asp-page="./Delete" asp-route-id="@Model.Doctor.Id" class="btn btn-danger btn-sm">
+                                <i class="bi bi-trash"></i> Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="text-success mb-3">Personal Information</h4>
+                            
+                            <dl class="row">
+                                <dt class="col-sm-4">
+                                    <i class="bi bi-person"></i> Name:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    <strong>Dr. @Model.Doctor.FirstName @Model.Doctor.LastName</strong>
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                    <i class="bi bi-award"></i> Specialization:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    <span class="badge bg-primary fs-6">@Model.Doctor.Specialization</span>
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                    <i class="bi bi-card-text"></i> License Number:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    <code class="fs-6">@Model.Doctor.LicenseNumber</code>
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                    <i class="bi bi-activity"></i> Status:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @if (Model.Doctor.IsActive)
+                                    {
+                                        <span class="badge bg-success fs-6">
+                                            <i class="bi bi-check-circle"></i> Active
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary fs-6">
+                                            <i class="bi bi-x-circle"></i> Inactive
+                                        </span>
+                                    }
+                                </dd>
+                            </dl>
+                        </div>
+
+                        <div class="col-md-6">
+                            <h4 class="text-success mb-3">Contact Information</h4>
+                            
+                            <dl class="row">
+                                <dt class="col-sm-4">
+                                    <i class="bi bi-envelope"></i> Email:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    <a href="mailto:@Model.Doctor.Email">@Model.Doctor.Email</a>
+                                </dd>
+
+                                <dt class="col-sm-4">
+                                    <i class="bi bi-telephone"></i> Phone:
+                                </dt>
+                                <dd class="col-sm-8">
+                                    <a href="tel:@Model.Doctor.PhoneNumber">@Model.Doctor.PhoneNumber</a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="text-success mb-3">
+                                <i class="bi bi-calendar-check"></i> Appointments & Schedule
+                            </h4>
+                            <div class="alert alert-secondary">
+                                <i class="bi bi-info-circle"></i> Appointment schedule and history feature coming soon.
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="text-success mb-3">
+                                <i class="bi bi-people"></i> Patient Statistics
+                            </h4>
+                            <div class="row text-center">
+                                <div class="col-md-4">
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h2 class="text-primary">0</h2>
+                                            <p class="mb-0">Total Patients</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h2 class="text-info">0</h2>
+                                            <p class="mb-0">This Month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h2 class="text-success">0</h2>
+                                            <p class="mb-0">This Week</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between">
+                        <a asp-page="./Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Back to List
+                        </a>
+                        <small class="text-muted align-self-center">
+                            Doctor ID: @Model.Doctor.Id
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

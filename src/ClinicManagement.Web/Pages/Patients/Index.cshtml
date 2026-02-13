@@ -1,0 +1,134 @@
+@page
+@model ClinicManagement.Web.Pages.Patients.IndexModel
+@{
+    ViewData["Title"] = "Patients";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <h1>
+                <i class="bi bi-people"></i> Patients
+            </h1>
+        </div>
+        <div class="col-md-6 text-end">
+            <a asp-page="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Add New Patient
+            </a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <form method="get">
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                        <label class="col-form-label">Search:</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" name="searchString" value="@Model.SearchString" 
+                               class="form-control" placeholder="Search by name or email...">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-search"></i> Search
+                        </button>
+                        <a asp-page="./Index" class="btn btn-secondary">
+                            <i class="bi bi-x-circle"></i> Clear
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            @if (Model.Patients.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Name</th>
+                                <th>Date of Birth</th>
+                                <th>Gender</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var patient in Model.Patients)
+                            {
+                                <tr>
+                                    <td>
+                                        <strong>@patient.FirstName @patient.LastName</strong>
+                                    </td>
+                                    <td>@patient.DateOfBirth.ToString("MMM dd, yyyy")</td>
+                                    <td>
+                                        @if (patient.Gender == "Male")
+                                        {
+                                            <span class="badge bg-info">
+                                                <i class="bi bi-gender-male"></i> @patient.Gender
+                                            </span>
+                                        }
+                                        else if (patient.Gender == "Female")
+                                        {
+                                            <span class="badge bg-danger">
+                                                <i class="bi bi-gender-female"></i> @patient.Gender
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">@patient.Gender</span>
+                                        }
+                                    </td>
+                                    <td>@patient.Email</td>
+                                    <td>@patient.PhoneNumber</td>
+                                    <td>@patient.Address</td>
+                                    <td class="text-center">
+                                        <div class="btn-group btn-group-sm" role="group">
+                                            <a asp-page="./Details" asp-route-id="@patient.Id" 
+                                               class="btn btn-info" title="Details">
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+                                            <a asp-page="./Edit" asp-route-id="@patient.Id" 
+                                               class="btn btn-warning" title="Edit">
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
+                                            <a asp-page="./Delete" asp-route-id="@patient.Id" 
+                                               class="btn btn-danger" title="Delete">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info">
+                    <i class="bi bi-info-circle"></i> 
+                    @if (!string.IsNullOrEmpty(Model.SearchString))
+                    {
+                        <text>No patients found matching "@Model.SearchString".</text>
+                    }
+                    else
+                    {
+                        <text>No patients registered yet. Click "Add New Patient" to get started.</text>
+                    }
+                </div>
+            }
+        </div>
+        @if (Model.Patients.Any())
+        {
+            <div class="card-footer">
+                <p class="mb-0 text-muted">
+                    <strong>Total:</strong> @Model.Patients.Count() patient(s)
+                </p>
+            </div>
+        }
+    </div>
+</div>

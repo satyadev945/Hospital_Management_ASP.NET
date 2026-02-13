@@ -1,0 +1,85 @@
+@page "{id:int}"
+@model ClinicManagement.Web.Pages.Patients.DeleteModel
+@{
+    ViewData["Title"] = "Delete Patient";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h2 class="mb-0">
+                        <i class="bi bi-exclamation-triangle"></i> Delete Patient
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning">
+                        <h4 class="alert-heading">
+                            <i class="bi bi-exclamation-triangle-fill"></i> Warning!
+                        </h4>
+                        <p class="mb-0">Are you sure you want to delete this patient? This action cannot be undone.</p>
+                    </div>
+
+                    <h4 class="mt-4">Patient Information:</h4>
+                    
+                    <dl class="row">
+                        <dt class="col-sm-4">
+                            <i class="bi bi-person"></i> Name:
+                        </dt>
+                        <dd class="col-sm-8">
+                            <strong>@Model.Patient.FirstName @Model.Patient.LastName</strong>
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <i class="bi bi-calendar"></i> Date of Birth:
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.Patient.DateOfBirth.ToString("MMMM dd, yyyy")
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <i class="bi bi-gender-ambiguous"></i> Gender:
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.Patient.Gender
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <i class="bi bi-envelope"></i> Email:
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.Patient.Email
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <i class="bi bi-telephone"></i> Phone:
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.Patient.PhoneNumber
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            <i class="bi bi-geo-alt"></i> Address:
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.Patient.Address
+                        </dd>
+                    </dl>
+
+                    <form method="post">
+                        <input type="hidden" asp-for="Patient.Id" />
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <a asp-page="./Index" class="btn btn-secondary">
+                                <i class="bi bi-x-circle"></i> Cancel
+                            </a>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="bi bi-trash"></i> Delete Patient
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+/modernize-data/studio-data/TNT1001/APP1460/transformed-code/493/studio-workspace/upgrade-rah/src/ClinicManagement.Infrastructure/obj/Debug/net8.0/ClinicManagement.Infrastructure.csproj.AssemblyReference.cache
+/modernize-data/studio-data/TNT1001/APP1460/transformed-code/493/studio-workspace/upgrade-rah/src/ClinicManagement.Infrastructure/obj/Debug/net8.0/ClinicManagement.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/modernize-data/studio-data/TNT1001/APP1460/transformed-code/493/studio-workspace/upgrade-rah/src/ClinicManagement.Infrastructure/obj/Debug/net8.0/ClinicManagement.Infrastructure.AssemblyInfoInputs.cache
+/modernize-data/studio-data/TNT1001/APP1460/transformed-code/493/studio-workspace/upgrade-rah/src/ClinicManagement.Infrastructure/obj/Debug/net8.0/ClinicManagement.Infrastructure.AssemblyInfo.cs
+/modernize-data/studio-data/TNT1001/APP1460/transformed-code/493/studio-workspace/upgrade-rah/src/ClinicManagement.Infrastructure/obj/Debug/net8.0/ClinicManagement.Infrastructure.csproj.CoreCompileInputs.cache
+/modernize-data/studio-data/TNT1001/APP1460/transformed-code/493/studio-workspace/upgrade-rah/src/ClinicManagement.Infrastructure/obj/Debug/net8.0/ClinicManagement.Infrastructure.sourcelink.json
