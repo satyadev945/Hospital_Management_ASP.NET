@@ -471,3 +471,4 @@
 /modernize-data/studio-data/TNT1001/APP1459/transformed-code/492/studio-workspace/13Feb-rahul/tests/ClinicManagement.IntegrationTests/obj/Debug/net8.0/ClinicManagement.IntegrationTests.pdb
 /modernize-data/studio-data/TNT1001/APP1459/transformed-code/492/studio-workspace/13Feb-rahul/tests/ClinicManagement.IntegrationTests/obj/Debug/net8.0/ClinicManagement.IntegrationTests.genruntimeconfig.cache
 /modernize-data/studio-data/TNT1001/APP1459/transformed-code/492/studio-workspace/13Feb-rahul/tests/ClinicManagement.IntegrationTests/obj/Debug/net8.0/ref/ClinicManagement.IntegrationTests.dll
+/modernize-data/studio-data/TNT1001/APP1459/transformed-code/492/studio-workspace/13Feb-rahul/tests/ClinicManagement.IntegrationTests/bin/Debug/net8.0/CoverletSourceRootsMapping_ClinicManagement.IntegrationTests

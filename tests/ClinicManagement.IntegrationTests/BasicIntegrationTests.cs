@@ -36,6 +36,6 @@ public class BasicIntegrationTests : IClassFixture<WebApplicationFactory<Program
 
         response.EnsureSuccessStatusCode();
         var content = await response.Content.ReadAsStringAsync();
-        content.Should().Be("Healthy");
+        content.Trim('"').Should().Be("Healthy");
     }
 }

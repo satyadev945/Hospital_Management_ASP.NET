@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OOOQvm5PYMM=",
+  "dgSpecHash": "84SLnuhlETU=",
   "success": true,
   "projectFilePath": "/modernize-data/studio-data/TNT1001/APP1459/transformed-code/492/studio-workspace/13Feb-rahul/tests/ClinicManagement.IntegrationTests/ClinicManagement.IntegrationTests.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "/home/studioai/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/home/studioai/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/home/studioai/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",
+    "/home/studioai/.nuget/packages/coverlet.msbuild/6.0.0/coverlet.msbuild.6.0.0.nupkg.sha512",
     "/home/studioai/.nuget/packages/dapper/2.1.28/dapper.2.1.28.nupkg.sha512",
     "/home/studioai/.nuget/packages/fluentassertions/6.12.0/fluentassertions.6.12.0.nupkg.sha512",
     "/home/studioai/.nuget/packages/fluentvalidation/11.9.0/fluentvalidation.11.9.0.nupkg.sha512",
