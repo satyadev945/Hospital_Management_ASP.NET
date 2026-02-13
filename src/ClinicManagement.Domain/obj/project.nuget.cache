@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "0CdYd+tU7lc=",
+  "success": true,
+  "projectFilePath": "/modernize-data/studio-data/TNT1001/APP1459/transformed-code/492/studio-workspace/13Feb-rahul/src/ClinicManagement.Domain/ClinicManagement.Domain.csproj",
+  "expectedPackageFiles": [
+    "/home/studioai/.nuget/packages/microsoft.netcore.app.ref/8.0.24/microsoft.netcore.app.ref.8.0.24.nupkg.sha512",
+    "/home/studioai/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.24/microsoft.aspnetcore.app.ref.8.0.24.nupkg.sha512"
+  ],
+  "logs": []
+}

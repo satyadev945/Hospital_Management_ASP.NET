@@ -1,0 +1,14 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Clinic Management System</h1>
+    <p>Modern clinic management solution built with .NET 8</p>
+    <div class="mt-4">
+        <a asp-page="/Account/Login" class="btn btn-primary btn-lg">Login</a>
+        <a asp-page="/Account/Register" class="btn btn-success btn-lg">Register</a>
+    </div>
+</div>
